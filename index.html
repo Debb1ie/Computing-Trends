@@ -6,601 +6,510 @@
 <title>Computing Trends 2025 | PUP CCIS Sta. Mesa</title>
 <meta name="description" content="Flagship computing seminar by the College of Computing and Information Sciences, Polytechnic University of the Philippines, Sta. Mesa Manila."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;800;900&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet"/>
 <style>
-/* ═══════════════════════════════════════════════
-   ROOT & RESET
-═══════════════════════════════════════════════ */
 :root {
-  --maroon:     #8B1A1A;
-  --maroon-d:   #5c1010;
-  --maroon-l:   #b52626;
-  --gold:       #D4A017;
-  --gold-l:     #f0c040;
-  --gold-pale:  #fdf3d0;
-  --bg:         #0d0d10;
-  --bg2:        #121216;
-  --bg3:        #1a1a20;
-  --bg4:        #222228;
-  --text:       #f2f0ea;
-  --muted:      #9a9890;
-  --border:     rgba(255,255,255,0.08);
-  --radius:     12px;
-  --font-head:  'Raleway', sans-serif;
-  --font-body:  'Source Sans 3', sans-serif;
-  --nav-h:      68px;
+  --maroon:       #7A1518;
+  --maroon-d:     #4f0d0f;
+  --maroon-mid:   #9a1c1f;
+  --maroon-l:     #c02428;
+  --gold:         #C8941A;
+  --gold-l:       #e8b040;
+  --bg:           #080709;
+  --bg2:          #0e0b0c;
+  --bg3:          #141014;
+  --bg4:          #1c1719;
+  --bg5:          #221d1e;
+  --text:         #f0ede8;
+  --text-2:       #c4bfb8;
+  --muted:        #7a736e;
+  --border:       rgba(255,255,255,0.07);
+  --border-h:     rgba(255,255,255,0.13);
+  --radius:       14px;
+  --radius-sm:    8px;
+  --nav-h:        66px;
+  --serif:        'Instrument Serif', Georgia, serif;
+  --sans:         'DM Sans', sans-serif;
+  --tr:           0.22s cubic-bezier(0.4,0,0.2,1);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;font-size:16px;}
-body{background:var(--bg);color:var(--text);font-family:var(--font-body);line-height:1.7;overflow-x:hidden;}
+html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%;}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.65;overflow-x:hidden;}
 img{max-width:100%;display:block;}
 a{text-decoration:none;color:inherit;}
-button{cursor:pointer;font-family:var(--font-body);}
+button{cursor:pointer;font-family:var(--sans);}
 ul{list-style:none;}
+::selection{background:rgba(200,148,26,0.3);}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--maroon-mid);border-radius:10px;}
 
-/* ═══════════════════════════════════════════════
-   UTILITIES
-═══════════════════════════════════════════════ */
-.container{max-width:1160px;margin:0 auto;padding:0 5vw;}
-.section-tag{
-  display:inline-block;
-  font-size:0.72rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;
-  color:var(--gold);margin-bottom:0.85rem;
+/* UTILS */
+.container{max-width:1180px;margin:0 auto;padding:0 clamp(1.25rem,5vw,3rem);}
+.section-label{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  font-size:0.7rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:1rem;
 }
+.section-label::before{content:'';display:block;width:18px;height:1px;background:var(--gold);}
 h2.section-title{
-  font-family:var(--font-head);font-size:clamp(1.9rem,3.5vw,2.8rem);
-  font-weight:900;letter-spacing:-0.5px;line-height:1.1;margin-bottom:1rem;
+  font-family:var(--serif);font-size:clamp(2rem,3.8vw,3.1rem);
+  font-weight:400;line-height:1.1;margin-bottom:1rem;letter-spacing:-0.3px;
 }
-.section-lead{color:var(--muted);font-size:1rem;max-width:560px;line-height:1.65;}
-.badge{
-  display:inline-block;font-size:0.72rem;font-weight:600;letter-spacing:.5px;
-  padding:0.22rem 0.75rem;border-radius:100px;
-}
-.badge-maroon{background:rgba(139,26,26,0.25);color:#e88;border:1px solid rgba(139,26,26,0.4);}
-.badge-gold{background:rgba(212,160,23,0.18);color:var(--gold-l);border:1px solid rgba(212,160,23,0.35);}
-.badge-teal{background:rgba(45,180,160,0.15);color:#4de8cc;border:1px solid rgba(45,180,160,0.3);}
-.badge-blue{background:rgba(60,120,220,0.15);color:#7ab4f8;border:1px solid rgba(60,120,220,0.3);}
-
-.btn{
-  display:inline-block;padding:0.72rem 1.75rem;border-radius:8px;
-  font-weight:600;font-size:0.93rem;border:none;transition:all .2s;
-  font-family:var(--font-head);letter-spacing:.3px;
-}
-.btn-gold{background:var(--gold);color:#1a0800;}
-.btn-gold:hover{background:var(--gold-l);transform:translateY(-2px);}
-.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border);}
-.btn-outline:hover{border-color:rgba(255,255,255,0.25);background:rgba(255,255,255,0.05);}
+h2.section-title em{color:var(--gold);font-style:italic;}
+.section-lead{color:var(--muted);font-size:0.93rem;max-width:520px;line-height:1.7;}
+.badge{display:inline-flex;align-items:center;font-size:0.68rem;font-weight:600;letter-spacing:0.4px;padding:0.18rem 0.6rem;border-radius:100px;white-space:nowrap;}
+.badge-maroon{background:rgba(122,21,24,0.3);color:#e89a9a;border:1px solid rgba(122,21,24,0.5);}
+.badge-gold{background:rgba(200,148,26,0.2);color:var(--gold-l);border:1px solid rgba(200,148,26,0.35);}
+.badge-teal{background:rgba(30,168,148,0.18);color:#50d4bc;border:1px solid rgba(30,168,148,0.3);}
+.badge-blue{background:rgba(60,110,220,0.18);color:#82b0f8;border:1px solid rgba(60,110,220,0.3);}
+.badge-purple{background:rgba(140,90,220,0.18);color:#c08af8;border:1px solid rgba(140,90,220,0.3);}
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.72rem 1.6rem;border-radius:var(--radius-sm);font-weight:600;font-size:0.88rem;border:none;transition:all var(--tr);white-space:nowrap;font-family:var(--sans);}
+.btn svg{width:15px;height:15px;stroke-width:2.2;flex-shrink:0;}
+.btn-gold{background:var(--gold);color:#1a0d00;}
+.btn-gold:hover{background:var(--gold-l);transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,148,26,0.3);}
+.btn-outline{background:transparent;color:var(--text-2);border:1px solid var(--border-h);}
+.btn-outline:hover{border-color:rgba(255,255,255,0.22);color:var(--text);background:rgba(255,255,255,0.04);}
 .btn-maroon{background:var(--maroon);color:#fff;}
-.btn-maroon:hover{background:var(--maroon-l);transform:translateY(-1px);}
+.btn-maroon:hover{background:var(--maroon-l);transform:translateY(-1px);box-shadow:0 6px 20px rgba(122,21,24,0.4);}
+.btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--border);}
+.btn-ghost:hover{color:var(--text);border-color:var(--border-h);}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.reveal.vis{opacity:1;transform:none;}
+.reveal-l{opacity:0;transform:translateX(-28px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.reveal-l.vis{opacity:1;transform:none;}
+.reveal-r{opacity:0;transform:translateX(28px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.reveal-r.vis{opacity:1;transform:none;}
+.d1{transition-delay:0.08s;}.d2{transition-delay:0.15s;}.d3{transition-delay:0.22s;}.d4{transition-delay:0.29s;}.d5{transition-delay:0.36s;}.d6{transition-delay:0.43s;}
+.divider{height:1px;background:var(--border);}
 
-/* reveal animation */
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease, transform .65s ease;}
-.reveal.visible{opacity:1;transform:translateY(0);}
-.reveal-l{opacity:0;transform:translateX(-28px);transition:opacity .65s ease, transform .65s ease;}
-.reveal-l.visible{opacity:1;transform:translateX(0);}
-.reveal-r{opacity:0;transform:translateX(28px);transition:opacity .65s ease, transform .65s ease;}
-.reveal-r.visible{opacity:1;transform:translateX(0);}
-
-/* ═══════════════════════════════════════════════
-   MOBILE NAV OVERLAY
-═══════════════════════════════════════════════ */
-.mobile-overlay{
-  display:none;position:fixed;inset:0;z-index:200;
-  background:rgba(10,8,8,0.97);flex-direction:column;
-  align-items:center;justify-content:center;gap:2rem;
-}
-.mobile-overlay.open{display:flex;}
-.mobile-overlay a{
-  font-family:var(--font-head);font-size:1.6rem;font-weight:800;
-  color:var(--text);letter-spacing:-0.5px;
-}
-.mobile-overlay a:hover{color:var(--gold);}
-.mobile-close{
-  position:absolute;top:1.5rem;right:1.5rem;
-  background:none;border:none;color:var(--muted);font-size:1.8rem;
-  cursor:pointer;
-}
-
-/* ═══════════════════════════════════════════════
-   NAVBAR
-═══════════════════════════════════════════════ */
+/* NAVBAR */
 #navbar{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  height:var(--nav-h);
-  display:flex;align-items:center;
-  padding:0 5vw;
-  background:rgba(13,13,16,0.85);
-  backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--border);
-  transition:background .3s;
+  position:fixed;top:0;left:0;right:0;z-index:500;height:var(--nav-h);
+  display:flex;align-items:center;gap:1.5rem;
+  padding:0 clamp(1.25rem,4vw,3rem);
+  background:rgba(8,7,9,0.88);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
+  border-bottom:1px solid var(--border);transition:background 0.3s;
 }
-.nav-logo{
-  display:flex;align-items:center;gap:0.7rem;
-  font-family:var(--font-head);font-weight:900;font-size:1rem;
-  color:var(--text);white-space:nowrap;
-}
-.nav-logo .logo-mark{
-  width:36px;height:36px;border-radius:8px;
-  background:var(--maroon);
+.nav-logo{display:flex;align-items:center;gap:0.7rem;flex-shrink:0;}
+.nav-logo-mark{
+  width:38px;height:38px;border-radius:9px;overflow:hidden;flex-shrink:0;
+  background:var(--maroon);border:1px solid rgba(122,21,24,0.6);
   display:flex;align-items:center;justify-content:center;
-  font-size:1rem;font-weight:900;color:#fff;flex-shrink:0;
 }
-.nav-logo .logo-text span{display:block;line-height:1.2;}
-.nav-logo .logo-text .top{font-size:0.75rem;color:var(--gold);letter-spacing:1px;font-weight:600;}
-.nav-links-row{display:flex;align-items:center;gap:0.2rem;margin:0 auto;}
-.nav-links-row a{
-  font-size:0.85rem;font-weight:600;color:var(--muted);
-  padding:0.4rem 0.8rem;border-radius:6px;
-  transition:color .2s, background .2s;
-  font-family:var(--font-head);
-}
-.nav-links-row a:hover,.nav-links-row a.active{color:var(--text);background:rgba(255,255,255,0.06);}
-.nav-cta{
-  background:var(--maroon)!important;color:#fff!important;
-  padding:0.4rem 1.1rem!important;border-radius:6px;
-  transition:background .2s!important;
-}
-.nav-cta:hover{background:var(--maroon-l)!important;}
-.hamburger{
-  display:none;background:none;border:none;
-  color:var(--text);font-size:1.5rem;margin-left:auto;
-}
+.nav-logo-mark img{width:28px;height:28px;object-fit:contain;}
+.nav-logo-mark .lm-txt{font-size:0.8rem;font-weight:800;color:var(--gold);}
+.nav-logo-text{display:flex;flex-direction:column;line-height:1.2;}
+.nav-logo-text .nl-top{font-size:0.67rem;color:var(--gold);letter-spacing:1.5px;font-weight:600;text-transform:uppercase;}
+.nav-logo-text .nl-bot{font-size:0.88rem;font-weight:700;color:var(--text);}
+.nav-links{display:flex;align-items:center;gap:0.1rem;margin:0 auto;}
+.nav-links a{font-size:0.82rem;font-weight:500;color:var(--muted);padding:0.4rem 0.8rem;border-radius:6px;transition:color var(--tr),background var(--tr);}
+.nav-links a:hover,.nav-links a.active{color:var(--text);background:rgba(255,255,255,0.05);}
+.nav-links a.nav-cta{background:var(--maroon)!important;color:#fff!important;margin-left:0.35rem;}
+.nav-links a.nav-cta:hover{background:var(--maroon-l)!important;}
+.hamburger{display:none;background:none;border:1px solid var(--border);border-radius:7px;color:var(--text-2);padding:0.45rem;margin-left:auto;transition:all var(--tr);}
+.hamburger:hover{border-color:var(--border-h);color:var(--text);}
+.hamburger svg{width:18px;height:18px;display:block;}
 
-/* ═══════════════════════════════════════════════
-   HERO
-═══════════════════════════════════════════════ */
+/* MOBILE OVERLAY */
+.mobile-nav{
+  display:none;position:fixed;inset:0;z-index:490;
+  background:rgba(8,7,9,0.97);
+  flex-direction:column;align-items:stretch;
+  padding:5.5rem 2rem 3rem;gap:0;
+}
+.mobile-nav.open{display:flex;}
+.mobile-nav a{
+  font-family:var(--serif);font-size:1.85rem;font-weight:400;color:var(--text-2);
+  padding:0.75rem 0;border-bottom:1px solid var(--border);transition:color var(--tr);
+}
+.mobile-nav a:hover{color:var(--gold);}
+.mobile-nav a:last-child{color:var(--gold);border-bottom:none;margin-top:1rem;}
+.mobile-close{
+  position:absolute;top:1.1rem;right:1.1rem;
+  background:none;border:1px solid var(--border);border-radius:7px;color:var(--text-2);padding:0.45rem;
+}
+.mobile-close svg{width:18px;height:18px;display:block;}
+
+/* HERO */
 #hero{
-  min-height:100vh;
-  display:flex;align-items:center;
-  padding:calc(var(--nav-h) + 3rem) 5vw 4rem;
+  min-height:100svh;display:flex;align-items:center;
+  padding:calc(var(--nav-h) + 4rem) clamp(1.25rem,5vw,3rem) 5rem;
   position:relative;overflow:hidden;
 }
-.hero-bg-pattern{
+.hero-bg{
   position:absolute;inset:0;pointer-events:none;
-  background-image:
-    radial-gradient(circle at 70% 30%, rgba(139,26,26,0.18) 0%, transparent 50%),
-    radial-gradient(circle at 20% 70%, rgba(212,160,23,0.1) 0%, transparent 45%);
+  background:
+    radial-gradient(ellipse 60% 60% at 68% 25%, rgba(122,21,24,0.22) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 15% 75%, rgba(200,148,26,0.1) 0%, transparent 55%);
 }
-.hero-grid-lines{
+.hero-grid{
   position:absolute;inset:0;pointer-events:none;
-  background-image:
-    linear-gradient(rgba(212,160,23,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(212,160,23,0.04) 1px, transparent 1px);
-  background-size:80px 80px;
-  mask-image:radial-gradient(ellipse 90% 90% at 50% 50%, black 20%, transparent 100%);
+  background-image:linear-gradient(rgba(200,148,26,0.03) 1px, transparent 1px),linear-gradient(90deg, rgba(200,148,26,0.03) 1px, transparent 1px);
+  background-size:72px 72px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%);
 }
-.hero-inner{position:relative;max-width:820px;}
-.hero-eyebrow{
+.hero-inner{position:relative;max-width:900px;width:100%;}
+.hero-pill{
   display:inline-flex;align-items:center;gap:0.6rem;
-  background:rgba(139,26,26,0.2);border:1px solid rgba(139,26,26,0.5);
-  padding:0.35rem 1rem;border-radius:100px;
-  font-size:0.8rem;font-weight:600;color:#e88;
-  margin-bottom:1.75rem;
-  animation:fadeUp .5s ease both;
+  background:rgba(122,21,24,0.18);border:1px solid rgba(122,21,24,0.45);
+  padding:0.3rem 1rem;border-radius:100px;
+  font-size:0.73rem;font-weight:600;color:#e89a9a;margin-bottom:2rem;
+  animation:fu 0.6s both;
 }
-.hero-eyebrow .live-dot{
-  width:7px;height:7px;border-radius:50%;background:#f87171;
-  animation:blink 1.5s infinite;
-}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
-
+.live{width:6px;height:6px;border-radius:50%;background:#f87171;animation:blink 1.6s infinite;flex-shrink:0;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.2}}
+@keyframes fu{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 #hero h1{
-  font-family:var(--font-head);
-  font-size:clamp(2.8rem,6vw,4.8rem);
-  font-weight:900;line-height:1.05;
-  letter-spacing:-2px;
-  animation:fadeUp .6s .1s ease both;
+  font-family:var(--serif);font-size:clamp(3rem,7.5vw,6.2rem);
+  font-weight:400;line-height:0.95;letter-spacing:-2px;
+  animation:fu 0.7s 0.08s both;
 }
-#hero h1 .accent{color:var(--gold);}
-#hero h1 .accent2{color:#e88;}
+#hero h1 .g{color:var(--gold);}
+#hero h1 .d{color:var(--text-2);font-style:italic;}
 .hero-sub{
-  font-size:1.1rem;color:var(--muted);max-width:600px;
-  margin:1.5rem 0 2.5rem;line-height:1.65;
-  animation:fadeUp .6s .2s ease both;
+  font-size:clamp(0.93rem,1.7vw,1.06rem);color:var(--muted);
+  max-width:560px;margin:1.7rem 0 2.5rem;line-height:1.7;
+  animation:fu 0.7s 0.16s both;
 }
-.hero-actions{
-  display:flex;gap:1rem;flex-wrap:wrap;
-  animation:fadeUp .6s .3s ease both;
-}
-.hero-meta{
-  display:flex;gap:2.5rem;flex-wrap:wrap;
-  margin-top:3.5rem;padding-top:2rem;
+.hero-actions{display:flex;gap:0.85rem;flex-wrap:wrap;animation:fu 0.7s 0.24s both;}
+.hero-strip{
+  display:flex;gap:clamp(1.5rem,4vw,3.5rem);flex-wrap:wrap;
+  margin-top:4rem;padding-top:2rem;
   border-top:1px solid var(--border);
-  animation:fadeUp .6s .4s ease both;
+  animation:fu 0.7s 0.34s both;
 }
-.hero-meta-item .label{font-size:0.75rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase;}
-.hero-meta-item .value{
-  font-family:var(--font-head);font-size:1rem;font-weight:700;color:var(--text);
-  margin-top:0.1rem;
-}
-.hero-meta-item .value span{color:var(--gold);}
+.hs-label{font-size:0.68rem;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:0.25rem;}
+.hs-val{font-size:0.93rem;font-weight:600;color:var(--text);}
+.hs-val .hi{color:var(--gold);}
 
-/* ═══════════════════════════════════════════════
-   ABOUT / CCIS BACKGROUND
-═══════════════════════════════════════════════ */
-#about{
-  padding:6rem 0;
-  background:var(--bg2);
-  position:relative;
-}
-.about-layout{
-  display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;
-}
-.about-visual{
-  position:relative;
-}
-.about-img-card{
-  background:var(--bg3);border:1px solid var(--border);
-  border-radius:16px;padding:2rem;
-  position:relative;overflow:hidden;
-}
-.about-img-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:4px;
-  background:linear-gradient(90deg,var(--maroon),var(--gold));
+/* ABOUT */
+#about{padding:7rem 0;background:var(--bg2);}
+.about-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:5rem;align-items:center;}
+.about-card{background:var(--bg3);border:1px solid var(--border);border-radius:20px;overflow:hidden;}
+.about-card-top{
+  padding:2.5rem 2rem 2rem;
+  background:linear-gradient(135deg,var(--maroon-d),var(--bg3));
+  border-bottom:1px solid var(--border);
+  display:flex;flex-direction:column;align-items:center;text-align:center;gap:1rem;
 }
 .pup-seal{
   width:100px;height:100px;border-radius:50%;
-  background:linear-gradient(135deg,var(--maroon),var(--maroon-d));
-  display:flex;align-items:center;justify-content:center;
-  font-family:var(--font-head);font-size:1.6rem;font-weight:900;
-  color:var(--gold);margin:0 auto 1.5rem;
-  border:3px solid var(--gold);
+  background:rgba(255,255,255,0.04);
+  border:2px solid rgba(200,148,26,0.4);
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
 }
-.pup-name{
-  text-align:center;font-family:var(--font-head);font-weight:800;
-  font-size:1rem;line-height:1.3;color:var(--text);
-}
-.pup-name small{display:block;font-size:0.78rem;color:var(--muted);font-weight:400;margin-top:.3rem;}
-.about-stats-row{
-  display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem;
-}
-.astat{
-  background:var(--bg4);border:1px solid var(--border);border-radius:10px;
-  padding:1rem;text-align:center;
-}
-.astat .n{font-family:var(--font-head);font-size:1.5rem;font-weight:900;color:var(--gold);}
-.astat .l{font-size:0.75rem;color:var(--muted);margin-top:.2rem;}
+.pup-seal img{width:80%;height:80%;object-fit:contain;}
+.pup-seal .ps-txt{font-family:var(--serif);font-size:1.6rem;color:var(--gold);font-style:italic;}
+.about-name{font-weight:700;font-size:0.95rem;line-height:1.35;color:var(--text);}
+.about-name small{display:block;font-size:0.76rem;color:var(--muted);font-weight:400;margin-top:0.3rem;}
+.about-stats{display:grid;grid-template-columns:repeat(4,1fr);}
+.as{padding:1.2rem 0.75rem;text-align:center;border-right:1px solid var(--border);}
+.as:last-child{border-right:none;}
+.as-n{font-family:var(--serif);font-size:1.5rem;color:var(--gold);line-height:1;}
+.as-l{font-size:0.67rem;color:var(--muted);margin-top:0.3rem;}
+.about-text p{color:var(--muted);font-size:0.92rem;line-height:1.75;margin-bottom:0.9rem;}
+.pillars{margin-top:1.75rem;display:flex;flex-direction:column;gap:0.7rem;}
+.pillar{display:flex;gap:1rem;align-items:flex-start;background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;transition:border-color var(--tr);}
+.pillar:hover{border-color:var(--border-h);}
+.pi{width:38px;height:38px;border-radius:9px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.pi svg{width:17px;height:17px;}
+.pi-m{background:rgba(122,21,24,0.25);color:#e89a9a;}
+.pi-g{background:rgba(200,148,26,0.2);color:var(--gold-l);}
+.pi-t{background:rgba(30,168,148,0.2);color:#50d4bc;}
+.pillar h4{font-weight:700;font-size:0.875rem;color:var(--text);margin-bottom:0.2rem;}
+.pillar p{font-size:0.77rem;color:var(--muted);line-height:1.5;margin:0;}
 
-.about-text .section-tag{margin-bottom:0.5rem;}
-.about-text p{color:var(--muted);font-size:0.95rem;line-height:1.7;margin-bottom:1rem;}
-.ccis-pillars{margin-top:1.5rem;display:flex;flex-direction:column;gap:0.75rem;}
-.pillar{
-  display:flex;gap:0.85rem;align-items:flex-start;
-  background:var(--bg3);border:1px solid var(--border);
-  border-radius:10px;padding:0.85rem 1rem;
-}
-.pillar-icon{
-  width:36px;height:36px;border-radius:8px;flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;font-size:1rem;
-}
-.pi-maroon{background:rgba(139,26,26,0.25);}
-.pi-gold{background:rgba(212,160,23,0.2);}
-.pi-teal{background:rgba(45,180,160,0.18);}
-.pillar-text h4{font-family:var(--font-head);font-weight:700;font-size:0.9rem;color:var(--text);}
-.pillar-text p{font-size:0.8rem;color:var(--muted);line-height:1.5;margin:0;}
-
-/* ═══════════════════════════════════════════════
-   EVENTS
-═══════════════════════════════════════════════ */
-#events{padding:6rem 0;background:var(--bg);}
-.events-grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-  gap:1.5rem;margin-top:3rem;
-}
-.event-card{
-  background:var(--bg3);border:1px solid var(--border);
-  border-radius:var(--radius);overflow:hidden;
-  transition:transform .25s, border-color .25s;
-  display:flex;flex-direction:column;
-}
-.event-card:hover{transform:translateY(-5px);border-color:rgba(212,160,23,0.3);}
-.event-card-top{
-  padding:1.5rem 1.5rem 1rem;
-  border-bottom:1px solid var(--border);
-  position:relative;
-}
-.event-accent-bar{height:3px;margin:-1.5rem -1.5rem 1rem;background:var(--maroon);}
-.event-accent-bar.gold{background:var(--gold);}
-.event-accent-bar.teal{background:#2db4a0;}
-.event-date-badge{
-  font-size:0.75rem;color:var(--muted);letter-spacing:1px;
-  text-transform:uppercase;margin-bottom:0.5rem;
-}
-.event-card h3{
-  font-family:var(--font-head);font-size:1.15rem;font-weight:800;
-  line-height:1.25;margin-bottom:0.6rem;
-}
-.event-card p{font-size:0.875rem;color:var(--muted);line-height:1.6;}
-.event-card-bottom{
-  padding:1rem 1.5rem;display:flex;
-  align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;
-  margin-top:auto;
-}
-.event-tags{display:flex;gap:.4rem;flex-wrap:wrap;}
-.seats-info{font-size:0.78rem;color:var(--muted);}
-.seats-info strong{color:var(--text);}
+/* EVENTS */
+#events{padding:7rem 0;background:var(--bg);}
+.events-hdr{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1.5rem;margin-bottom:3rem;}
+.events-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.event-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:transform var(--tr),border-color var(--tr),box-shadow var(--tr);}
+.event-card:hover{transform:translateY(-6px);border-color:var(--border-h);box-shadow:0 20px 60px rgba(0,0,0,0.4);}
+.event-img{height:175px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.event-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
+.event-img-ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.6rem;}
+.event-img-ph svg{width:32px;height:32px;opacity:0.2;}
+.event-img-ph span{font-size:0.68rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase;}
+.eip1{background:linear-gradient(135deg,rgba(122,21,24,0.45),var(--bg4));}
+.eip2{background:linear-gradient(135deg,rgba(200,148,26,0.3),var(--bg4));}
+.eip3{background:linear-gradient(135deg,rgba(30,168,148,0.25),var(--bg4));}
+.event-top-bar{position:absolute;top:0;left:0;right:0;height:3px;}
+.etb1{background:linear-gradient(90deg,var(--maroon),transparent);}
+.etb2{background:linear-gradient(90deg,var(--gold),transparent);}
+.etb3{background:linear-gradient(90deg,#1ea894,transparent);}
+.event-body{padding:1.4rem;flex:1;display:flex;flex-direction:column;gap:0.55rem;}
+.event-date{display:flex;align-items:center;gap:0.4rem;font-size:0.73rem;color:var(--muted);}
+.event-date svg{width:12px;height:12px;flex-shrink:0;}
+.event-body h3{font-family:var(--serif);font-size:1.15rem;font-weight:400;line-height:1.25;color:var(--text);}
+.event-body p{font-size:0.83rem;color:var(--muted);line-height:1.6;flex:1;}
+.event-tags{display:flex;gap:0.4rem;flex-wrap:wrap;margin-top:0.2rem;}
+.event-foot{padding:1rem 1.4rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:0.75rem;}
+.seat-wrap{flex:1;min-width:0;}
+.seat-bar{height:3px;border-radius:2px;background:var(--bg4);overflow:hidden;margin-bottom:0.3rem;}
+.seat-fill{height:100%;border-radius:2px;}
+.sf1{background:linear-gradient(90deg,var(--maroon),var(--maroon-l));}
+.sf2{background:linear-gradient(90deg,#9a7010,var(--gold-l));}
+.sf3{background:linear-gradient(90deg,#0e8070,#1ea894);}
+.seat-lbl{font-size:0.7rem;color:var(--muted);}
 .btn-reg{
+  display:inline-flex;align-items:center;gap:0.35rem;flex-shrink:0;
   background:var(--maroon);color:#fff;
   padding:0.4rem 1rem;border-radius:6px;
-  font-size:0.8rem;font-weight:600;border:none;
-  font-family:var(--font-head);transition:background .2s;
+  font-size:0.78rem;font-weight:600;border:none;
+  font-family:var(--sans);transition:background var(--tr);
 }
+.btn-reg svg{width:12px;height:12px;}
 .btn-reg:hover{background:var(--maroon-l);}
 
-/* ═══════════════════════════════════════════════
-   PROGRAM FLOW
-═══════════════════════════════════════════════ */
-#program{padding:6rem 0;background:var(--bg2);}
-.program-filters{display:flex;gap:.6rem;flex-wrap:wrap;margin:2rem 0;}
-.pfilter{
-  background:var(--bg3);border:1px solid var(--border);
-  padding:.35rem .9rem;border-radius:100px;
-  font-size:.78rem;font-weight:600;color:var(--muted);cursor:pointer;
-  transition:all .2s;
+/* PROGRAM */
+#program{padding:7rem 0;background:var(--bg2);}
+.program-layout{display:grid;grid-template-columns:1fr 2.2fr;gap:3rem;align-items:start;}
+.prog-sticky{position:sticky;top:calc(var(--nav-h) + 2rem);}
+.filter-grp{display:flex;flex-direction:column;gap:0.45rem;margin-top:1.75rem;}
+.pf{
+  display:flex;align-items:center;gap:0.6rem;
+  background:transparent;border:1px solid var(--border);
+  padding:0.55rem 0.9rem;border-radius:8px;
+  font-size:0.82rem;font-weight:500;color:var(--muted);
+  cursor:pointer;transition:all var(--tr);text-align:left;
+  font-family:var(--sans);width:100%;
 }
-.pfilter:hover,.pfilter.active{
-  background:rgba(212,160,23,.15);color:var(--gold);
-  border-color:rgba(212,160,23,.4);
-}
-.timeline{position:relative;padding-left:2.5rem;}
-.timeline::before{
-  content:'';position:absolute;left:9px;top:0;bottom:0;
-  width:2px;background:var(--border);
-}
-.tl-item{
-  position:relative;margin-bottom:1.25rem;
-  display:none; /* shown by JS */
-}
-.tl-item.show{display:block;}
-.tl-dot{
-  position:absolute;left:-2.35rem;top:0.85rem;
-  width:14px;height:14px;border-radius:50%;border:2px solid var(--bg2);
-  background:var(--maroon);
-}
-.tl-dot.keynote{background:var(--gold);}
-.tl-dot.break{background:var(--bg4);border-color:var(--muted);}
-.tl-dot.workshop{background:#2db4a0;}
-.tl-dot.panel{background:#7ab4f8;}
-.tl-dot.ceremony{background:#c084fc;}
-.tl-card{
-  background:var(--bg3);border:1px solid var(--border);
-  border-radius:10px;padding:1rem 1.25rem;
-  transition:border-color .2s;
-}
-.tl-card:hover{border-color:rgba(212,160,23,.25);}
-.tl-time{font-size:.75rem;color:var(--gold);font-weight:600;letter-spacing:.5px;margin-bottom:.25rem;}
-.tl-title{font-family:var(--font-head);font-weight:700;font-size:.98rem;margin-bottom:.3rem;}
-.tl-desc{font-size:.83rem;color:var(--muted);line-height:1.5;}
-.tl-room{font-size:.72rem;color:var(--muted);margin-top:.4rem;}
-.tl-type-badge{float:right;margin-left:.5rem;}
+.pf:hover{color:var(--text);border-color:var(--border-h);}
+.pf.active{background:rgba(200,148,26,0.12);color:var(--gold);border-color:rgba(200,148,26,0.4);}
+.pf-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.timeline{position:relative;padding-left:1.75rem;}
+.timeline::before{content:'';position:absolute;left:5px;top:0;bottom:0;width:1px;background:var(--border);}
+.tl-item{margin-bottom:0.9rem;position:relative;}
+.tl-item.hidden{display:none;}
+.tl-dot{position:absolute;left:-1.68rem;top:1.1rem;width:10px;height:10px;border-radius:50%;border:2px solid var(--bg2);}
+.tl-card{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:0.95rem 1.2rem;transition:border-color var(--tr);}
+.tl-card:hover{border-color:var(--border-h);}
+.tl-top{display:flex;align-items:flex-start;justify-content:space-between;gap:0.75rem;margin-bottom:0.25rem;}
+.tl-time{font-size:0.7rem;color:var(--gold);font-weight:600;letter-spacing:0.4px;white-space:nowrap;padding-top:1px;}
+.tl-title{font-weight:600;font-size:0.9rem;color:var(--text);line-height:1.35;flex:1;}
+.tl-desc{font-size:0.8rem;color:var(--muted);line-height:1.55;margin-top:0.25rem;}
+.tl-room{display:inline-flex;align-items:center;gap:0.3rem;font-size:0.68rem;color:var(--muted);margin-top:0.45rem;}
+.tl-room svg{width:10px;height:10px;flex-shrink:0;}
 
-/* ═══════════════════════════════════════════════
-   SPEAKERS
-═══════════════════════════════════════════════ */
-#speakers{padding:6rem 0;background:var(--bg);}
-.speakers-grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:1.5rem;margin-top:3rem;
-}
-.speaker-card{
-  background:var(--bg3);border:1px solid var(--border);
-  border-radius:var(--radius);padding:1.5rem;
-  text-align:center;transition:transform .2s, border-color .2s;
-}
-.speaker-card:hover{transform:translateY(-4px);border-color:rgba(212,160,23,.3);}
+/* SPEAKERS */
+#speakers{padding:7rem 0;background:var(--bg);}
+.speakers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
+.speaker-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:1.75rem 1.5rem;display:flex;flex-direction:column;align-items:center;text-align:center;transition:transform var(--tr),border-color var(--tr);}
+.speaker-card:hover{transform:translateY(-4px);border-color:var(--border-h);}
+.speaker-card.featured{border-color:rgba(200,148,26,0.28);background:linear-gradient(180deg,rgba(200,148,26,0.04),var(--bg3));}
+.sp-tag{font-size:0.64rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
 .sp-avatar{
-  width:76px;height:76px;border-radius:50%;margin:0 auto 1rem;
+  width:78px;height:78px;border-radius:50%;overflow:hidden;margin-bottom:1rem;
   display:flex;align-items:center;justify-content:center;
-  font-family:var(--font-head);font-size:1.4rem;font-weight:900;
-  border:2px solid var(--border);
+  font-family:var(--serif);font-size:1.4rem;font-style:italic;border:2px solid var(--border);
 }
-.sp-av-maroon{background:rgba(139,26,26,.25);color:#e88;border-color:rgba(139,26,26,.4);}
-.sp-av-gold{background:rgba(212,160,23,.2);color:var(--gold-l);border-color:rgba(212,160,23,.4);}
-.sp-av-teal{background:rgba(45,180,160,.2);color:#4de8cc;border-color:rgba(45,180,160,.4);}
-.sp-av-blue{background:rgba(60,120,220,.2);color:#7ab4f8;border-color:rgba(60,120,220,.4);}
-.sp-av-purple{background:rgba(160,100,240,.2);color:#c084fc;border-color:rgba(160,100,240,.4);}
-.speaker-card h3{font-family:var(--font-head);font-size:1rem;font-weight:800;margin-bottom:.2rem;}
-.sp-role{font-size:.8rem;color:var(--gold);margin-bottom:.2rem;}
-.sp-org{font-size:.78rem;color:var(--muted);}
-.sp-bio{font-size:.8rem;color:var(--muted);line-height:1.5;margin:0.75rem 0;}
-.sp-tags{display:flex;gap:.4rem;justify-content:center;flex-wrap:wrap;margin-top:.75rem;}
-.featured-badge{
-  display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:1px;
-  text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;
-}
+.sp-avatar img{width:100%;height:100%;object-fit:cover;}
+.sp-av-m{background:rgba(122,21,24,0.25);color:#e89a9a;border-color:rgba(122,21,24,0.4);}
+.sp-av-g{background:rgba(200,148,26,0.2);color:var(--gold-l);border-color:rgba(200,148,26,0.4);}
+.sp-av-t{background:rgba(30,168,148,0.2);color:#50d4bc;border-color:rgba(30,168,148,0.4);}
+.sp-av-b{background:rgba(60,110,220,0.2);color:#82b0f8;border-color:rgba(60,110,220,0.4);}
+.sp-av-p{background:rgba(140,90,220,0.2);color:#c08af8;border-color:rgba(140,90,220,0.4);}
+.speaker-card h3{font-family:var(--serif);font-size:1.1rem;font-weight:400;margin-bottom:0.25rem;}
+.sp-role{font-size:0.76rem;color:var(--gold);margin-bottom:0.15rem;font-weight:500;}
+.sp-org{font-size:0.73rem;color:var(--muted);}
+.sp-bio{font-size:0.79rem;color:var(--muted);line-height:1.55;margin:0.8rem 0;}
+.sp-tags{display:flex;gap:0.4rem;justify-content:center;flex-wrap:wrap;}
 
-/* ═══════════════════════════════════════════════
-   REGISTER
-═══════════════════════════════════════════════ */
-#register{
-  padding:6rem 0;
-  background:linear-gradient(180deg,var(--bg2) 0%,var(--bg) 100%);
+/* REGISTER */
+#register{padding:7rem 0;background:var(--bg2);}
+.reg-inner{display:grid;grid-template-columns:1fr 1.6fr;gap:4rem;align-items:start;}
+.reg-left p{color:var(--muted);font-size:0.92rem;line-height:1.7;margin-bottom:1rem;}
+.reg-info{display:flex;flex-direction:column;gap:0.7rem;margin-top:2rem;}
+.ri{display:flex;align-items:center;gap:0.85rem;font-size:0.84rem;color:var(--muted);}
+.ri svg{width:16px;height:16px;flex-shrink:0;color:var(--gold);}
+.ri strong{color:var(--text);}
+.reg-card{background:var(--bg3);border:1px solid var(--border);border-radius:20px;overflow:hidden;}
+.reg-card-head{
+  padding:1.4rem 2rem;border-bottom:1px solid var(--border);
+  background:linear-gradient(135deg,rgba(122,21,24,0.2),transparent);
 }
-.register-wrap{max-width:680px;margin:0 auto;}
-.register-wrap .section-title,.register-wrap .section-lead{text-align:center;}
-.register-wrap .section-lead{margin:0 auto 2rem;}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem;}
-.fg{display:flex;flex-direction:column;gap:.4rem;}
-.fg.full{grid-column:1/-1;}
-.fg label{font-size:.78rem;font-weight:600;color:var(--muted);letter-spacing:.4px;}
-.fg input,.fg select,.fg textarea{
-  background:var(--bg3);border:1px solid var(--border);
-  border-radius:8px;padding:.65rem .9rem;
-  color:var(--text);font-family:var(--font-body);font-size:.9rem;
-  outline:none;transition:border-color .2s;width:100%;
-}
-.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gold);}
-.fg select option{background:var(--bg3);}
-.fg textarea{resize:vertical;min-height:90px;}
-.form-submit-row{grid-column:1/-1;margin-top:.5rem;}
-.form-submit-row .btn{width:100%;padding:.9rem;font-size:1rem;}
+.reg-card-head h3{font-family:var(--serif);font-size:1.35rem;font-weight:400;}
+.reg-card-head p{font-size:0.8rem;color:var(--muted);margin-top:0.25rem;}
+.reg-card-body{padding:1.75rem;}
+.gform-wrap iframe{width:100%;min-height:680px;border:none;border-radius:8px;background:transparent;display:block;}
+.gform-open{display:flex;justify-content:center;margin-top:1rem;}
 
-/* Progress bar for seat count */
-.seat-meter{margin-top:.5rem;}
-.seat-meter-bar{height:4px;border-radius:2px;background:var(--bg4);overflow:hidden;margin-bottom:.3rem;}
-.seat-meter-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--maroon),var(--gold));transition:width .8s ease;}
-.seat-meter-label{font-size:.72rem;color:var(--muted);}
-
-/* ═══════════════════════════════════════════════
-   ABOUT (Team)
-═══════════════════════════════════════════════ */
-#team{padding:6rem 0;background:var(--bg2);}
-.team-grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:1.25rem;margin-top:3rem;
-}
-.team-card{
-  background:var(--bg3);border:1px solid var(--border);
-  border-radius:var(--radius);padding:1.25rem;
-  text-align:center;transition:border-color .2s;
-}
-.team-card:hover{border-color:rgba(212,160,23,.35);}
+/* TEAM */
+#team{padding:7rem 0;background:var(--bg);}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1.2rem;margin-top:3rem;}
+.team-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:1.4rem 1.1rem;text-align:center;transition:border-color var(--tr);}
+.team-card:hover{border-color:var(--border-h);}
 .tm-av{
-  width:60px;height:60px;border-radius:50%;margin:0 auto .85rem;
+  width:54px;height:54px;border-radius:50%;overflow:hidden;margin:0 auto 0.85rem;
   display:flex;align-items:center;justify-content:center;
-  font-family:var(--font-head);font-size:1.1rem;font-weight:900;
-  background:rgba(139,26,26,.2);color:#e88;border:1px solid rgba(139,26,26,.35);
+  font-family:var(--serif);font-size:1.05rem;font-style:italic;
+  background:rgba(122,21,24,0.2);color:#e89a9a;border:1px solid rgba(122,21,24,0.3);
 }
-.team-card h4{font-family:var(--font-head);font-size:.9rem;font-weight:800;}
-.team-card p{font-size:.78rem;color:var(--muted);margin-top:.2rem;}
+.tm-av img{width:100%;height:100%;object-fit:cover;}
+.team-card h4{font-weight:700;font-size:0.86rem;color:var(--text);}
+.team-card p{font-size:0.74rem;color:var(--muted);margin-top:0.2rem;}
 
-/* ═══════════════════════════════════════════════
-   FAQ
-═══════════════════════════════════════════════ */
-#faq{padding:6rem 0;background:var(--bg);}
-.faq-list{max-width:720px;margin:2.5rem auto 0;display:flex;flex-direction:column;gap:.75rem;}
-.faq-item{
-  background:var(--bg3);border:1px solid var(--border);
-  border-radius:10px;overflow:hidden;
-}
+/* FAQ */
+#faq{padding:7rem 0;background:var(--bg2);}
+.faq-inner{max-width:740px;margin:3rem auto 0;}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-item:first-child{border-top:1px solid var(--border);}
 .faq-q{
-  width:100%;background:none;border:none;
-  padding:1.1rem 1.25rem;text-align:left;
-  font-family:var(--font-head);font-size:.95rem;font-weight:700;color:var(--text);
-  display:flex;align-items:center;justify-content:space-between;gap:1rem;
-  cursor:pointer;transition:color .2s;
+  width:100%;background:none;border:none;padding:1.2rem 0;text-align:left;
+  font-size:0.93rem;font-weight:600;color:var(--text-2);
+  display:flex;align-items:center;justify-content:space-between;gap:1.5rem;
+  cursor:pointer;transition:color var(--tr);font-family:var(--sans);
 }
-.faq-q:hover{color:var(--gold);}
-.faq-icon{font-size:1.2rem;flex-shrink:0;transition:transform .3s;color:var(--muted);}
-.faq-item.open .faq-icon{transform:rotate(45deg);color:var(--gold);}
-.faq-a{
-  display:none;padding:0 1.25rem 1.1rem;
-  font-size:.88rem;color:var(--muted);line-height:1.65;
+.faq-q:hover{color:var(--text);}
+.faq-item.open .faq-q{color:var(--gold);}
+.faq-icon{
+  width:26px;height:26px;border-radius:50%;background:var(--bg3);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all var(--tr);
 }
-.faq-item.open .faq-a{display:block;}
+.faq-icon svg{width:13px;height:13px;transition:transform var(--tr);}
+.faq-item.open .faq-icon{background:rgba(200,148,26,0.15);border-color:rgba(200,148,26,0.4);}
+.faq-item.open .faq-icon svg{transform:rotate(45deg);color:var(--gold);}
+.faq-a{overflow:hidden;max-height:0;transition:max-height 0.38s ease,padding 0.38s ease;font-size:0.87rem;color:var(--muted);line-height:1.7;padding:0;}
+.faq-item.open .faq-a{max-height:200px;padding-bottom:1.2rem;}
 
-/* ═══════════════════════════════════════════════
-   CONTACT
-═══════════════════════════════════════════════ */
-#contact{padding:6rem 0;background:var(--bg2);}
-.contact-layout{display:grid;grid-template-columns:1fr 1.4fr;gap:4rem;align-items:start;}
-.contact-info h3{font-family:var(--font-head);font-weight:800;font-size:1.3rem;margin-bottom:1.25rem;}
-.contact-item{
-  display:flex;gap:1rem;align-items:flex-start;margin-bottom:1.25rem;
+/* CONTACT */
+#contact{padding:7rem 0;background:var(--bg);}
+.contact-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:4rem;align-items:start;}
+.contact-info h3{font-family:var(--serif);font-size:1.55rem;font-weight:400;margin-bottom:1.75rem;line-height:1.2;}
+.ci{display:flex;gap:0.9rem;align-items:flex-start;margin-bottom:1.35rem;}
+.ci-icon{width:38px;height:38px;border-radius:9px;flex-shrink:0;background:rgba(122,21,24,0.22);display:flex;align-items:center;justify-content:center;}
+.ci-icon svg{width:15px;height:15px;color:#e89a9a;}
+.ci-label{font-size:0.68rem;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:0.22rem;}
+.ci-val{font-size:0.87rem;color:var(--text-2);line-height:1.55;}
+.soc-links{display:flex;gap:0.6rem;flex-wrap:wrap;margin-top:1.75rem;}
+.soc-link{display:inline-flex;align-items:center;gap:0.4rem;background:var(--bg3);border:1px solid var(--border);border-radius:7px;padding:0.42rem 0.85rem;font-size:0.76rem;font-weight:600;color:var(--muted);transition:all var(--tr);}
+.soc-link svg{width:13px;height:13px;}
+.soc-link:hover{border-color:rgba(200,148,26,0.4);color:var(--gold);}
+.cf-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;}
+.cf-card h4{font-family:var(--serif);font-size:1.25rem;font-weight:400;margin-bottom:1.4rem;}
+.cf-grid{display:flex;flex-direction:column;gap:1rem;}
+.fg{display:flex;flex-direction:column;gap:0.38rem;}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.fg label{font-size:0.73rem;font-weight:600;color:var(--muted);letter-spacing:0.4px;}
+.fg input,.fg textarea{
+  background:var(--bg4);border:1px solid var(--border);border-radius:8px;
+  padding:0.63rem 0.85rem;color:var(--text);font-family:var(--sans);font-size:0.87rem;
+  outline:none;transition:border-color var(--tr),box-shadow var(--tr);width:100%;
 }
-.ci-icon{
-  width:40px;height:40px;border-radius:9px;flex-shrink:0;
-  background:rgba(139,26,26,.2);display:flex;align-items:center;justify-content:center;font-size:1rem;
-}
-.ci-label{font-size:.75rem;color:var(--muted);letter-spacing:.5px;text-transform:uppercase;}
-.ci-val{font-size:.9rem;color:var(--text);margin-top:.15rem;line-height:1.5;}
-.social-row{display:flex;gap:.75rem;margin-top:1.5rem;}
-.social-btn{
-  background:var(--bg3);border:1px solid var(--border);
-  border-radius:8px;padding:.5rem .9rem;font-size:.8rem;
-  color:var(--muted);transition:all .2s;font-family:var(--font-head);font-weight:600;
-}
-.social-btn:hover{border-color:rgba(212,160,23,.4);color:var(--gold);}
+.fg input:focus,.fg textarea:focus{border-color:rgba(200,148,26,0.5);box-shadow:0 0 0 3px rgba(200,148,26,0.08);}
+.fg textarea{resize:vertical;min-height:110px;}
 
-.contact-form{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;}
-.contact-form h4{font-family:var(--font-head);font-weight:800;margin-bottom:1.25rem;}
-.contact-form .fg input,.contact-form .fg textarea{background:var(--bg4);}
-
-/* ═══════════════════════════════════════════════
-   TOAST
-═══════════════════════════════════════════════ */
-#toast{
-  position:fixed;bottom:2rem;right:2rem;z-index:999;
-  background:var(--bg3);border:1px solid rgba(212,160,23,.4);
-  border-radius:12px;padding:1rem 1.5rem;
-  max-width:340px;box-shadow:0 8px 40px rgba(0,0,0,.5);
-  transform:translateY(120px);opacity:0;
-  transition:all .4s cubic-bezier(0.34,1.56,0.64,1);
-  pointer-events:none;
-}
-#toast.show{transform:translateY(0);opacity:1;pointer-events:auto;}
-.toast-head{font-size:.78rem;font-weight:700;margin-bottom:.25rem;}
-.toast-head.ok{color:var(--gold);}
-.toast-head.err{color:#f87171;}
-.toast-body{font-size:.85rem;color:var(--muted);}
-
-/* ═══════════════════════════════════════════════
-   FOOTER
-═══════════════════════════════════════════════ */
-footer{
-  border-top:1px solid var(--border);
-  background:var(--bg);
-  padding:3rem 5vw 2rem;
-}
-.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem;}
-.footer-brand .nav-logo{margin-bottom:1rem;}
-.footer-brand p{font-size:.83rem;color:var(--muted);line-height:1.6;max-width:280px;}
-.footer-col h5{font-family:var(--font-head);font-weight:800;font-size:.85rem;margin-bottom:1rem;color:var(--text);}
-.footer-col ul{display:flex;flex-direction:column;gap:.6rem;}
-.footer-col ul a{font-size:.82rem;color:var(--muted);transition:color .2s;}
+/* FOOTER */
+footer{border-top:1px solid var(--border);background:var(--bg2);padding:3.5rem clamp(1.25rem,5vw,3rem) 2rem;}
+.footer-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr;gap:3.5rem;margin-bottom:2.75rem;}
+.footer-brand p{font-size:0.81rem;color:var(--muted);line-height:1.65;max-width:290px;margin-top:1rem;}
+.footer-col h5{font-weight:700;font-size:0.78rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:1rem;color:var(--text-2);}
+.footer-col ul{display:flex;flex-direction:column;gap:0.55rem;}
+.footer-col ul a{font-size:0.8rem;color:var(--muted);transition:color var(--tr);}
 .footer-col ul a:hover{color:var(--gold);}
-.footer-bottom{
-  border-top:1px solid var(--border);padding-top:1.5rem;
-  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem;
-}
-.footer-bottom p{font-size:.78rem;color:var(--muted);}
+.footer-bot{border-top:1px solid var(--border);padding-top:1.4rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.75rem;}
+.footer-bot p{font-size:0.74rem;color:var(--muted);}
 
-/* ═══════════════════════════════════════════════
-   RESPONSIVE
-═══════════════════════════════════════════════ */
-@media(max-width:900px){
-  .about-layout{grid-template-columns:1fr;}
-  .contact-layout{grid-template-columns:1fr;}
-  .footer-top{grid-template-columns:1fr 1fr;}
+/* TOAST */
+#toast{
+  position:fixed;bottom:1.5rem;right:1.5rem;z-index:9999;
+  background:var(--bg3);border:1px solid var(--border-h);
+  border-radius:12px;padding:1rem 1.4rem 1rem 1rem;
+  max-width:310px;width:calc(100% - 3rem);
+  box-shadow:0 16px 48px rgba(0,0,0,0.6);
+  transform:translateY(140%);opacity:0;
+  transition:all 0.4s cubic-bezier(0.34,1.4,0.64,1);
+  pointer-events:none;display:flex;align-items:flex-start;gap:0.85rem;
 }
-@media(max-width:700px){
-  .nav-links-row{display:none;}
-  .hamburger{display:block;}
-  .form-grid{grid-template-columns:1fr;}
-  .footer-top{grid-template-columns:1fr;}
-  .hero-meta{gap:1.5rem;}
-  .footer-brand p{max-width:100%;}
+#toast.show{transform:none;opacity:1;pointer-events:auto;}
+.toast-icon{width:30px;height:30px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.toast-icon svg{width:15px;height:15px;}
+.toast-icon.ok{background:rgba(50,180,100,0.2);}
+.toast-icon.ok svg{color:#50d090;}
+.toast-icon.err{background:rgba(220,60,60,0.2);}
+.toast-icon.err svg{color:#f87171;}
+.toast-title{font-size:0.8rem;font-weight:700;margin-bottom:0.2rem;}
+.toast-title.ok{color:#50d090;}
+.toast-title.err{color:#f87171;}
+.toast-body{font-size:0.8rem;color:var(--muted);}
+
+/* BTT */
+#btt{
+  position:fixed;bottom:1.5rem;left:1.5rem;z-index:400;
+  width:40px;height:40px;border-radius:10px;
+  background:var(--bg3);border:1px solid var(--border);
+  color:var(--muted);display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:all var(--tr);opacity:0;pointer-events:none;transform:translateY(10px);
 }
-@media(max-width:480px){
+#btt.show{opacity:1;pointer-events:auto;transform:none;}
+#btt:hover{border-color:var(--border-h);color:var(--text);}
+#btt svg{width:16px;height:16px;}
+
+/* RESPONSIVE */
+@media(max-width:1040px){
+  .events-grid{grid-template-columns:1fr 1fr;}
+  .speakers-grid{grid-template-columns:1fr 1fr 1fr;}
+  .program-layout{grid-template-columns:1fr;}
+  .prog-sticky{position:static;}
+  .filter-grp{flex-direction:row;flex-wrap:wrap;}
+  .pf{width:auto;}
+  .reg-inner{grid-template-columns:1fr;}
+  .contact-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:768px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .about-grid{grid-template-columns:1fr;}
+  .events-grid{grid-template-columns:1fr;}
+  .speakers-grid{grid-template-columns:1fr 1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+  .about-stats{grid-template-columns:1fr 1fr;}
+  .fg-row{grid-template-columns:1fr;}
+}
+@media(max-width:540px){
+  #hero h1{font-size:2.8rem;}
+  .speakers-grid{grid-template-columns:1fr;}
+  .hero-actions{flex-direction:column;}
+  .hero-actions .btn{width:100%;justify-content:center;}
+  .team-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:360px){
   #hero h1{font-size:2.4rem;}
+  .team-grid{grid-template-columns:1fr;}
 }
 </style>
 </head>
 <body>
 
-<!-- ── MOBILE OVERLAY ── -->
-<div class="mobile-overlay" id="mobileOverlay">
-  <button class="mobile-close" onclick="closeMobile()">✕</button>
-  <a href="#about" onclick="closeMobile()">About CCIS</a>
-  <a href="#events" onclick="closeMobile()">Events</a>
-  <a href="#program" onclick="closeMobile()">Program</a>
-  <a href="#speakers" onclick="closeMobile()">Speakers</a>
-  <a href="#faq" onclick="closeMobile()">FAQ</a>
-  <a href="#contact" onclick="closeMobile()">Contact</a>
-  <a href="#register" onclick="closeMobile()" style="color:var(--gold)">Register Now →</a>
-</div>
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobileNav">
+  <button class="mobile-close" onclick="closeMob()" aria-label="Close">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <a href="#about" onclick="closeMob()">About CCIS</a>
+  <a href="#events" onclick="closeMob()">Events</a>
+  <a href="#program" onclick="closeMob()">Program</a>
+  <a href="#speakers" onclick="closeMob()">Speakers</a>
+  <a href="#faq" onclick="closeMob()">FAQ</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+  <a href="#register" onclick="closeMob()">Register Now</a>
+</nav>
 
-<!-- ── NAVBAR ── -->
-<nav id="navbar">
+<!-- NAVBAR -->
+<header id="navbar">
   <a href="#hero" class="nav-logo">
-    <div class="logo-mark">CT</div>
-    <div class="logo-text">
-      <span class="top">PUP · CCIS</span>
-      <span>Computing Trends</span>
+    <div class="nav-logo-mark">
+      <!-- Replace img with: <img src="pup-logo.png" alt="PUP Logo"> -->
+      <span class="lm-txt">PUP</span>
+    </div>
+    <div class="nav-logo-text">
+      <span class="nl-top">PUP &middot; CCIS</span>
+      <span class="nl-bot">Computing Trends</span>
     </div>
   </a>
-  <div class="nav-links-row" id="navLinks">
+  <nav class="nav-links" id="navLinks">
     <a href="#about" class="nav-link">About CCIS</a>
     <a href="#events" class="nav-link">Events</a>
     <a href="#program" class="nav-link">Program</a>
@@ -608,109 +517,93 @@ footer{
     <a href="#faq" class="nav-link">FAQ</a>
     <a href="#contact" class="nav-link">Contact</a>
     <a href="#register" class="nav-link nav-cta">Register</a>
-  </div>
-  <button class="hamburger" onclick="openMobile()">☰</button>
-</nav>
+  </nav>
+  <button class="hamburger" onclick="openMob()" aria-label="Open menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+</header>
 
-<!-- ══════════════════════════════════════════
-     HERO
-══════════════════════════════════════════ -->
+<!-- HERO -->
 <section id="hero">
-  <div class="hero-bg-pattern"></div>
-  <div class="hero-grid-lines"></div>
-  <div class="hero-inner container">
-    <div class="hero-eyebrow">
-      <span class="live-dot"></span>
-      Flagship Seminar · PUP CCIS Sta. Mesa · 2025
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-pill">
+      <span class="live"></span>
+      Flagship Seminar &middot; PUP CCIS Sta. Mesa &middot; 2025
     </div>
     <h1>
-      <span class="accent2">Computing</span><br/>
-      <span class="accent">Trends</span> 2025
+      <span class="d">Computing</span><br/>
+      <span class="g">Trends</span><br/>
+      2025
     </h1>
     <p class="hero-sub">
-      The annual seminar of the College of Computing and Information Sciences,
-      Polytechnic University of the Philippines — where students, faculty, and industry
-      converge to explore the technologies reshaping our world.
+      The annual seminar of the College of Computing and Information Sciences, Polytechnic University of the Philippines &mdash; where students, faculty, and industry converge to explore the technologies reshaping our world.
     </p>
     <div class="hero-actions">
-      <a class="btn btn-gold" href="#register">Register for Free</a>
-      <a class="btn btn-outline" href="#program">View Program</a>
+      <a class="btn btn-gold" href="#register">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M9 12h6M9 16h4"/></svg>
+        Register Now — Free
+      </a>
+      <a class="btn btn-outline" href="#program">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        View Program
+      </a>
     </div>
-    <div class="hero-meta">
-      <div class="hero-meta-item">
-        <div class="label">Date</div>
-        <div class="value">June <span>14</span>, 2025</div>
-      </div>
-      <div class="hero-meta-item">
-        <div class="label">Time</div>
-        <div class="value"><span>8:00 AM</span> – 5:00 PM</div>
-      </div>
-      <div class="hero-meta-item">
-        <div class="label">Venue</div>
-        <div class="value">PUP Main Auditorium / <span>Online</span></div>
-      </div>
-      <div class="hero-meta-item">
-        <div class="label">Format</div>
-        <div class="value"><span>Hybrid</span> · Free</div>
-      </div>
+    <div class="hero-strip">
+      <div><div class="hs-label">Date</div><div class="hs-val">June <span class="hi">14</span>, 2025</div></div>
+      <div><div class="hs-label">Time</div><div class="hs-val"><span class="hi">8:00 AM</span> – 5:00 PM</div></div>
+      <div><div class="hs-label">Venue</div><div class="hs-val">PUP Auditorium / <span class="hi">Online</span></div></div>
+      <div><div class="hs-label">Format</div><div class="hs-val"><span class="hi">Hybrid</span> &middot; Free</div></div>
+      <div><div class="hs-label">Hosted by</div><div class="hs-val">PUP <span class="hi">CCIS</span></div></div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     ABOUT CCIS
-══════════════════════════════════════════ -->
+<div class="divider"></div>
+
+<!-- ABOUT -->
 <section id="about">
   <div class="container">
-    <div class="about-layout">
-      <div class="about-visual reveal-l">
-        <div class="about-img-card">
-          <div class="pup-seal">PUP</div>
-          <div class="pup-name">
-            Polytechnic University of the Philippines
-            <small>College of Computing &amp; Information Sciences<br/>Sta. Mesa, Manila</small>
+    <div class="about-grid">
+      <div class="reveal-l">
+        <div class="about-card">
+          <div class="about-card-top">
+            <div class="pup-seal">
+              <!-- Replace with: <img src="pup-seal.png" alt="PUP Seal"> -->
+              <span class="ps-txt">PUP</span>
+            </div>
+            <div class="about-name">
+              Polytechnic University of the Philippines
+              <small>College of Computing &amp; Information Sciences<br/>Sta. Mesa, Manila</small>
+            </div>
           </div>
-          <div class="about-stats-row">
-            <div class="astat"><div class="n">1904</div><div class="l">Year Founded</div></div>
-            <div class="astat"><div class="n">70k+</div><div class="l">PUP Students</div></div>
-            <div class="astat"><div class="n">CCIS</div><div class="l">College</div></div>
-            <div class="astat"><div class="n">#1</div><div class="l">State University PH</div></div>
+          <div class="about-stats">
+            <div class="as"><div class="as-n">1904</div><div class="as-l">Founded</div></div>
+            <div class="as"><div class="as-n">70k+</div><div class="as-l">Students</div></div>
+            <div class="as"><div class="as-n">CCIS</div><div class="as-l">College</div></div>
+            <div class="as"><div class="as-n">#1</div><div class="as-l">State Univ. PH</div></div>
           </div>
         </div>
       </div>
-      <div class="about-text reveal-r">
-        <div class="section-tag">About CCIS</div>
-        <h2 class="section-title">The College Behind the Seminar</h2>
-        <p>
-          The <strong>College of Computing and Information Sciences (CCIS)</strong> at Polytechnic University of the Philippines, Sta. Mesa, Manila is one of the country's leading public computing colleges — offering Bachelor of Science in Computer Science, Information Technology, and Computer Engineering.
-        </p>
-        <p>
-          Established to bridge the gap between academic excellence and industry-ready skills, CCIS has produced thousands of graduates who now lead technology teams across the Philippines and abroad. The college is committed to research, innovation, and community engagement through programs like <em>Computing Trends</em>.
-        </p>
-        <p>
-          <strong>Computing Trends</strong> is the flagship annual seminar of CCIS — a platform designed to expose students to cutting-edge technologies, connect them with industry practitioners, and spark conversations about the future of computing.
-        </p>
-        <div class="ccis-pillars">
+      <div class="reveal-r">
+        <div class="section-label">About CCIS</div>
+        <h2 class="section-title">The College <em>Behind</em> the Seminar</h2>
+        <p>The <strong>College of Computing and Information Sciences (CCIS)</strong> at Polytechnic University of the Philippines, Sta. Mesa, Manila is one of the country's leading public computing colleges — offering Bachelor of Science in Computer Science, Information Technology, and Computer Engineering.</p>
+        <p>Established to bridge academic excellence and industry-ready skills, CCIS has produced thousands of graduates who lead technology teams across the Philippines and abroad.</p>
+        <p><strong>Computing Trends</strong> is the flagship annual seminar of CCIS — a platform to expose students to cutting-edge technologies, connect them with industry practitioners, and spark conversations about the future of computing.</p>
+        <div class="pillars">
           <div class="pillar">
-            <div class="pillar-icon pi-maroon">🎓</div>
-            <div class="pillar-text">
-              <h4>Academic Excellence</h4>
-              <p>Rigorous BS CS, BS IT, and BS CpE programs with CHED recognition and industry-aligned curriculum.</p>
-            </div>
+            <div class="pi pi-m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+            <div><h4>Academic Excellence</h4><p>Rigorous BS CS, BS IT, and BS CpE programs with CHED recognition and industry-aligned curriculum.</p></div>
           </div>
           <div class="pillar">
-            <div class="pillar-icon pi-gold">🔬</div>
-            <div class="pillar-text">
-              <h4>Research &amp; Innovation</h4>
-              <p>Active research groups in AI, cybersecurity, software engineering, and data science.</p>
-            </div>
+            <div class="pi pi-g"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
+            <div><h4>Research &amp; Innovation</h4><p>Active research groups in AI, cybersecurity, software engineering, and data science.</p></div>
           </div>
           <div class="pillar">
-            <div class="pillar-icon pi-teal">🤝</div>
-            <div class="pillar-text">
-              <h4>Industry Partnership</h4>
-              <p>Strong MOU ties with tech companies, government agencies, and international universities.</p>
-            </div>
+            <div class="pi pi-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+            <div><h4>Industry Partnership</h4><p>Strong MOU ties with tech companies, government agencies, and international universities.</p></div>
           </div>
         </div>
       </div>
@@ -718,618 +611,584 @@ footer{
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     EVENTS
-══════════════════════════════════════════ -->
+<div class="divider"></div>
+
+<!-- EVENTS -->
 <section id="events">
   <div class="container">
-    <div class="section-tag">Upcoming Events</div>
-    <h2 class="section-title">Computing Trends<br/>Event Line-up</h2>
-    <p class="section-lead">Three events. One mission — equip the next generation of Filipino tech leaders with the knowledge that matters.</p>
-    <div class="events-grid reveal" id="eventsGrid">
-      <!-- Cards injected by JS / static fallback below -->
-      <div class="event-card">
-        <div class="event-card-top">
-          <div class="event-accent-bar"></div>
-          <div class="event-date-badge">📅 June 14–14, 2025 · Hybrid</div>
+    <div class="events-hdr">
+      <div>
+        <div class="section-label">Upcoming Events</div>
+        <h2 class="section-title">Event <em>Line-up</em></h2>
+        <p class="section-lead">Three events. One mission — equip the next generation of Filipino tech leaders with the knowledge that matters.</p>
+      </div>
+    </div>
+    <div class="events-grid">
+
+      <div class="event-card reveal d1">
+        <div class="event-img eip1">
+          <!-- Replace with: <img src="event1-banner.jpg" alt="Computing Trends 2025"> -->
+          <div class="event-img-ph">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span>Event Banner Placeholder</span>
+          </div>
+          <div class="event-top-bar etb1"></div>
+        </div>
+        <div class="event-body">
+          <div class="event-date">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            June 14, 2025 &middot; Hybrid
+          </div>
           <h3>Computing Trends 2025: The AI-Driven Future</h3>
           <p>A flagship seminar by CCIS PUP Sta. Mesa exploring the forefront of computing — from generative AI to quantum computing.</p>
-        </div>
-        <div class="event-card-bottom">
-          <div>
-            <div class="event-tags">
-              <span class="badge badge-maroon">Flagship</span>
-              <span class="badge badge-gold">Hybrid</span>
-              <span class="badge badge-teal">Free</span>
-            </div>
-            <div class="seat-meter">
-              <div class="seat-meter-bar"><div class="seat-meter-fill" style="width:15%"></div></div>
-              <div class="seat-meter-label">45 / 300 registered</div>
-            </div>
+          <div class="event-tags">
+            <span class="badge badge-maroon">Flagship</span>
+            <span class="badge badge-gold">Hybrid</span>
+            <span class="badge badge-teal">Free</span>
           </div>
-          <button class="btn-reg" onclick="scrollTo('register','Computing Trends 2025: The AI-Driven Future',1)">Register →</button>
+        </div>
+        <div class="event-foot">
+          <div class="seat-wrap">
+            <div class="seat-bar"><div class="seat-fill sf1" style="width:15%"></div></div>
+            <div class="seat-lbl">45 / 300 registered</div>
+          </div>
+          <button class="btn-reg" onclick="goRegister()">
+            Register
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
         </div>
       </div>
 
-      <div class="event-card">
-        <div class="event-card-top">
-          <div class="event-accent-bar gold"></div>
-          <div class="event-date-badge">📅 July 5, 2025 · In-Person</div>
+      <div class="event-card reveal d2">
+        <div class="event-img eip2">
+          <!-- Replace with: <img src="event2-banner.jpg" alt="Workshop"> -->
+          <div class="event-img-ph">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span>Event Banner Placeholder</span>
+          </div>
+          <div class="event-top-bar etb2"></div>
+        </div>
+        <div class="event-body">
+          <div class="event-date">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            July 5, 2025 &middot; In-Person
+          </div>
           <h3>Workshop: Hands-On with Generative AI</h3>
-          <p>Roll up your sleeves — build real AI-powered apps using open-source LLMs, prompt engineering, and modern deployment patterns.</p>
-        </div>
-        <div class="event-card-bottom">
-          <div>
-            <div class="event-tags">
-              <span class="badge badge-gold">Workshop</span>
-              <span class="badge badge-blue">Limited</span>
-            </div>
-            <div class="seat-meter">
-              <div class="seat-meter-bar"><div class="seat-meter-fill" style="width:30%"></div></div>
-              <div class="seat-meter-label">12 / 40 registered</div>
-            </div>
+          <p>Build real AI-powered apps using open-source LLMs, prompt engineering, and modern deployment patterns. Bring your laptop.</p>
+          <div class="event-tags">
+            <span class="badge badge-gold">Workshop</span>
+            <span class="badge badge-blue">Limited Seats</span>
           </div>
-          <button class="btn-reg" onclick="scrollTo('register','Workshop: Hands-On with Generative AI',2)">Register →</button>
+        </div>
+        <div class="event-foot">
+          <div class="seat-wrap">
+            <div class="seat-bar"><div class="seat-fill sf2" style="width:30%"></div></div>
+            <div class="seat-lbl">12 / 40 registered</div>
+          </div>
+          <button class="btn-reg" onclick="goRegister()">
+            Register
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
         </div>
       </div>
 
-      <div class="event-card">
-        <div class="event-card-top">
-          <div class="event-accent-bar teal"></div>
-          <div class="event-date-badge">📅 August 22, 2025 · Online</div>
+      <div class="event-card reveal d3">
+        <div class="event-img eip3">
+          <!-- Replace with: <img src="event3-banner.jpg" alt="Forum"> -->
+          <div class="event-img-ph">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span>Event Banner Placeholder</span>
+          </div>
+          <div class="event-top-bar etb3"></div>
+        </div>
+        <div class="event-body">
+          <div class="event-date">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            August 22, 2025 &middot; Online
+          </div>
           <h3>Forum: Ethics &amp; Governance in Tech</h3>
           <p>A panel discussion on responsible AI, data privacy, algorithmic bias, and the policy landscape for emerging technologies.</p>
-        </div>
-        <div class="event-card-bottom">
-          <div>
-            <div class="event-tags">
-              <span class="badge badge-teal">Forum</span>
-              <span class="badge badge-gold">Online</span>
-              <span class="badge badge-teal">Free</span>
-            </div>
-            <div class="seat-meter">
-              <div class="seat-meter-bar"><div class="seat-meter-fill" style="width:5%"></div></div>
-              <div class="seat-meter-label">25 / 500 registered</div>
-            </div>
+          <div class="event-tags">
+            <span class="badge badge-teal">Forum</span>
+            <span class="badge badge-gold">Online</span>
+            <span class="badge badge-teal">Free</span>
           </div>
-          <button class="btn-reg" onclick="scrollTo('register','Forum: Ethics & Governance in Tech',3)">Register →</button>
+        </div>
+        <div class="event-foot">
+          <div class="seat-wrap">
+            <div class="seat-bar"><div class="seat-fill sf3" style="width:5%"></div></div>
+            <div class="seat-lbl">25 / 500 registered</div>
+          </div>
+          <button class="btn-reg" onclick="goRegister()">
+            Register
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     PROGRAM FLOW
-══════════════════════════════════════════ -->
+<div class="divider"></div>
+
+<!-- PROGRAM -->
 <section id="program">
   <div class="container">
-    <div class="section-tag">Program Flow</div>
-    <h2 class="section-title">Day of Events —<br/>June 14, 2025</h2>
-    <p class="section-lead">Full agenda for the flagship Computing Trends 2025 seminar. Filter by session type below.</p>
-    <div class="program-filters">
-      <button class="pfilter active" data-filter="all" onclick="filterProgram(this,'all')">All Sessions</button>
-      <button class="pfilter" data-filter="keynote" onclick="filterProgram(this,'keynote')">Keynotes</button>
-      <button class="pfilter" data-filter="talk" onclick="filterProgram(this,'talk')">Talks</button>
-      <button class="pfilter" data-filter="workshop" onclick="filterProgram(this,'workshop')">Workshops</button>
-      <button class="pfilter" data-filter="panel" onclick="filterProgram(this,'panel')">Panels</button>
-      <button class="pfilter" data-filter="break" onclick="filterProgram(this,'break')">Breaks</button>
-      <button class="pfilter" data-filter="ceremony" onclick="filterProgram(this,'ceremony')">Ceremony</button>
-    </div>
-    <div class="timeline reveal" id="programTimeline">
-      <!-- injected by buildTimeline() -->
+    <div class="section-label">Program Flow</div>
+    <h2 class="section-title" style="margin-bottom:0.5rem">Day of Events &mdash; <em>June 14, 2025</em></h2>
+    <p class="section-lead" style="margin-bottom:3rem">Full agenda for the flagship Computing Trends 2025 seminar. Filter by session type.</p>
+    <div class="program-layout">
+      <div class="prog-sticky reveal-l">
+        <p style="font-size:0.81rem;color:var(--muted);line-height:1.6;">Filter by session type to explore the agenda.</p>
+        <div class="filter-grp" id="filterGrp">
+          <button class="pf active" data-type="all" onclick="filterProg(this,'all')"><span class="pf-dot" style="background:var(--text-2)"></span>All Sessions</button>
+          <button class="pf" data-type="keynote" onclick="filterProg(this,'keynote')"><span class="pf-dot" style="background:var(--gold)"></span>Keynotes</button>
+          <button class="pf" data-type="talk" onclick="filterProg(this,'talk')"><span class="pf-dot" style="background:#82b0f8"></span>Talks</button>
+          <button class="pf" data-type="workshop" onclick="filterProg(this,'workshop')"><span class="pf-dot" style="background:#50d4bc"></span>Workshops</button>
+          <button class="pf" data-type="panel" onclick="filterProg(this,'panel')"><span class="pf-dot" style="background:#c08af8"></span>Panels</button>
+          <button class="pf" data-type="break" onclick="filterProg(this,'break')"><span class="pf-dot" style="background:var(--muted)"></span>Breaks</button>
+          <button class="pf" data-type="ceremony" onclick="filterProg(this,'ceremony')"><span class="pf-dot" style="background:#e89a9a"></span>Ceremony</button>
+        </div>
+      </div>
+      <div class="timeline reveal" id="timeline"></div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     SPEAKERS
-══════════════════════════════════════════ -->
+<div class="divider"></div>
+
+<!-- SPEAKERS -->
 <section id="speakers">
   <div class="container">
-    <div class="section-tag">Speakers & Faculty</div>
-    <h2 class="section-title">Learn From the<br/>Best in the Field</h2>
-    <p class="section-lead">Practitioners, researchers, and educators — each speaker brings real-world depth to Computing Trends 2025.</p>
-    <div class="speakers-grid reveal" id="speakersGrid">
-      <!-- injected by JS / static fallback -->
-      <div class="speaker-card">
-        <div class="featured-badge">★ Event Patron</div>
-        <div class="sp-avatar sp-av-maroon">DS</div>
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1.5rem;margin-bottom:3rem;">
+      <div>
+        <div class="section-label">Speakers &amp; Faculty</div>
+        <h2 class="section-title">Learn From the <em>Best</em></h2>
+        <p class="section-lead">Practitioners, researchers, and educators — each speaker brings real-world depth to Computing Trends 2025.</p>
+      </div>
+    </div>
+    <div class="speakers-grid">
+
+      <div class="speaker-card featured reveal d1">
+        <div class="sp-tag">Event Patron</div>
+        <div class="sp-avatar sp-av-m">
+          <!-- Replace with: <img src="speaker1.jpg" alt="Dr. Maria Santos"> -->
+          DS
+        </div>
         <h3>Dr. Maria Santos</h3>
         <div class="sp-role">Dean, CCIS</div>
         <div class="sp-org">PUP Sta. Mesa</div>
         <p class="sp-bio">Led CCIS through a decade of academic innovation. Research in ML for education and public administration.</p>
         <div class="sp-tags"><span class="badge badge-maroon">AI in Ed</span><span class="badge badge-gold">Leadership</span></div>
       </div>
-      <div class="speaker-card">
-        <div class="featured-badge">★ Keynote Speaker</div>
-        <div class="sp-avatar sp-av-gold">CR</div>
+
+      <div class="speaker-card featured reveal d2">
+        <div class="sp-tag">Keynote Speaker</div>
+        <div class="sp-avatar sp-av-g">
+          <!-- Replace with: <img src="speaker2.jpg" alt="Engr. Carlo Reyes"> -->
+          CR
+        </div>
         <h3>Engr. Carlo Reyes</h3>
         <div class="sp-role">Lead AI Engineer</div>
         <div class="sp-org">Thinking Machines PH</div>
-        <p class="sp-bio">Deployed ML systems at scale for government and enterprise clients across Southeast Asia. PUP alumni.</p>
+        <p class="sp-bio">Deployed ML systems at scale for government and enterprise clients across Southeast Asia. PUP alumnus.</p>
         <div class="sp-tags"><span class="badge badge-gold">LLMs</span><span class="badge badge-teal">MLOps</span></div>
       </div>
-      <div class="speaker-card">
-        <div class="featured-badge">★ Speaker</div>
-        <div class="sp-avatar sp-av-teal">AD</div>
+
+      <div class="speaker-card reveal d3">
+        <div class="sp-tag">Speaker</div>
+        <div class="sp-avatar sp-av-t">
+          <!-- Replace with: <img src="speaker3.jpg" alt="Prof. Ana Dela Cruz"> -->
+          AD
+        </div>
         <h3>Prof. Ana Dela Cruz</h3>
         <div class="sp-role">Associate Professor</div>
         <div class="sp-org">PUP CCIS</div>
         <p class="sp-bio">Expert in cybersecurity and AI-driven intrusion detection. Published in IEEE and ACM journals.</p>
         <div class="sp-tags"><span class="badge badge-teal">Cybersecurity</span><span class="badge badge-blue">Forensics</span></div>
       </div>
-      <div class="speaker-card">
-        <div class="featured-badge">★ Panelist</div>
-        <div class="sp-avatar sp-av-blue">JB</div>
+
+      <div class="speaker-card reveal d4">
+        <div class="sp-tag">Panelist</div>
+        <div class="sp-avatar sp-av-b">JB</div>
         <h3>Mr. Jose Bautista</h3>
         <div class="sp-role">CTO &amp; Co-Founder</div>
         <div class="sp-org">TechBridge PH</div>
         <p class="sp-bio">Bootstrapped TechBridge from a dorm project to 120 people. Speaks on startup culture and product engineering.</p>
         <div class="sp-tags"><span class="badge badge-blue">Startups</span><span class="badge badge-gold">Product</span></div>
       </div>
-      <div class="speaker-card">
-        <div class="sp-avatar sp-av-purple">RV</div>
+
+      <div class="speaker-card reveal d5">
+        <div class="sp-avatar sp-av-p">RV</div>
         <h3>Dr. Rina Villanueva</h3>
         <div class="sp-role">Quantum Computing Researcher</div>
         <div class="sp-org">DOST-ASTI</div>
-        <p class="sp-bio">Leads quantum computing initiatives at DOST. Bridges academic research and national tech strategy.</p>
+        <p class="sp-bio">Leads quantum computing initiatives at DOST. Bridges academic research and national technology strategy.</p>
         <div class="sp-tags"><span class="badge badge-blue">Quantum</span><span class="badge badge-teal">Crypto</span></div>
       </div>
-      <div class="speaker-card">
-        <div class="sp-avatar sp-av-maroon">TL</div>
+
+      <div class="speaker-card reveal d6">
+        <div class="sp-avatar sp-av-m">TL</div>
         <h3>Ms. Trisha Lim</h3>
         <div class="sp-role">Data Privacy Officer</div>
         <div class="sp-org">Bangko Sentral ng Pilipinas</div>
         <p class="sp-bio">Expert in RA 10173 and GDPR compliance. Helps organizations build privacy-first data strategies.</p>
         <div class="sp-tags"><span class="badge badge-maroon">Privacy</span><span class="badge badge-gold">Governance</span></div>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     REGISTER
-══════════════════════════════════════════ -->
+<div class="divider"></div>
+
+<!-- REGISTER -->
 <section id="register">
   <div class="container">
-    <div class="register-wrap reveal">
-      <div class="section-tag" style="display:block;text-align:center">Registration</div>
-      <h2 class="section-title">Secure Your Seat</h2>
-      <p class="section-lead">Registration is FREE for all PUP students. Fill in the form and you'll receive a confirmation with your reference code.</p>
-      <div class="form-grid" id="regForm">
-        <div class="fg">
-          <label>First Name *</label>
-          <input type="text" id="r_fname" placeholder="Juan"/>
+    <div class="reg-inner">
+      <div class="reg-left reveal-l">
+        <div class="section-label">Registration</div>
+        <h2 class="section-title">Secure <em>Your Seat</em></h2>
+        <p>Registration is <strong>completely free</strong> for all PUP students. Fill in the Google Form and receive a confirmation with your reference code.</p>
+        <div class="reg-info">
+          <div class="ri">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>Free</strong> for all PUP Students with valid ID</span>
+          </div>
+          <div class="ri">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            <span>E-certificate sent after event completion</span>
+          </div>
+          <div class="ri">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            <span>Zoom link sent to online registrants upon confirmation</span>
+          </div>
+          <div class="ri">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>Takes less than <strong>2 minutes</strong> to complete</span>
+          </div>
         </div>
-        <div class="fg">
-          <label>Last Name *</label>
-          <input type="text" id="r_lname" placeholder="Dela Cruz"/>
+      </div>
+      <div class="reg-card reveal-r">
+        <div class="reg-card-head">
+          <h3>Registration Form</h3>
+          <p>Powered by Google Forms &middot; Secure &amp; Instant</p>
         </div>
-        <div class="fg">
-          <label>Email Address *</label>
-          <input type="email" id="r_email" placeholder="juan@pup.edu.ph"/>
-        </div>
-        <div class="fg">
-          <label>Student ID / Employee No.</label>
-          <input type="text" id="r_sid" placeholder="2021-XXXXX-MN-0"/>
-        </div>
-        <div class="fg">
-          <label>Course</label>
-          <select id="r_course">
-            <option value="">Select course…</option>
-            <option>BS Computer Science</option>
-            <option>BS Information Technology</option>
-            <option>BS Computer Engineering</option>
-            <option>Other / N/A</option>
-          </select>
-        </div>
-        <div class="fg">
-          <label>Year &amp; Section</label>
-          <input type="text" id="r_yearsec" placeholder="e.g. 3-A"/>
-        </div>
-        <div class="fg">
-          <label>I am a…</label>
-          <select id="r_role">
-            <option value="student">PUP Student</option>
-            <option value="faculty">PUP Faculty / Staff</option>
-            <option value="alumni">PUP Alumni</option>
-            <option value="industry">Industry Professional</option>
-            <option value="guest">Guest</option>
-          </select>
-        </div>
-        <div class="fg">
-          <label>Event *</label>
-          <select id="r_event">
-            <option value="1">Computing Trends 2025: The AI-Driven Future (Jun 14)</option>
-            <option value="2">Workshop: Hands-On with Generative AI (Jul 5)</option>
-            <option value="3">Forum: Ethics &amp; Governance in Tech (Aug 22)</option>
-          </select>
-        </div>
-        <div class="fg full">
-          <label>What do you hope to learn or gain?</label>
-          <textarea id="r_expect" placeholder="Share your learning goals or expectations from the event…"></textarea>
-        </div>
-        <div class="fg full form-submit-row">
-          <button class="btn btn-gold" onclick="handleRegister()">Submit Registration →</button>
+        <div class="reg-card-body">
+          <div class="gform-wrap">
+            <iframe
+              src="https://docs.google.com/forms/d/e/1FAIpQLSe7tkD6Jk6Kf7VJk5EA/viewform?embedded=true"
+              title="Computing Trends 2025 Registration"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              loading="lazy"
+            >Loading form...</iframe>
+          </div>
+          <div class="gform-open">
+            <a href="https://forms.gle/7tkD6Jk6Kf7VJk5EA" target="_blank" rel="noopener" class="btn btn-ghost" style="font-size:0.8rem;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Open form in new tab
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     TEAM
-══════════════════════════════════════════ -->
+<div class="divider"></div>
+
+<!-- TEAM -->
 <section id="team">
   <div class="container">
-    <div class="section-tag">Our Team</div>
-    <h2 class="section-title">The People Behind<br/>Computing Trends</h2>
+    <div class="section-label">Our Team</div>
+    <h2 class="section-title">The People <em>Behind</em> Computing Trends</h2>
     <p class="section-lead">Faculty advisers and student organizers who make this seminar happen every year.</p>
-    <div class="team-grid reveal">
-      <div class="team-card"><div class="tm-av">MS</div><h4>Dr. Maria Santos</h4><p>Dean, CCIS — Patron</p></div>
-      <div class="team-card"><div class="tm-av">AD</div><h4>Prof. Ana Dela Cruz</h4><p>Event Adviser</p></div>
-      <div class="team-card"><div class="tm-av">JD</div><h4>Juan Dela Cruz</h4><p>Event Coordinator</p></div>
-      <div class="team-card"><div class="tm-av">KB</div><h4>Kristine Bautista</h4><p>Logistics Head</p></div>
-      <div class="team-card"><div class="tm-av">PR</div><h4>Paolo Ramos</h4><p>Multimedia &amp; Design</p></div>
-      <div class="team-card"><div class="tm-av">MT</div><h4>Mia Torres</h4><p>Registration &amp; Documentation</p></div>
+    <div class="team-grid">
+      <div class="team-card reveal d1">
+        <div class="tm-av"><!-- <img src="team1.jpg" alt="Dr. Maria Santos"> -->MS</div>
+        <h4>Dr. Maria Santos</h4><p>Dean, CCIS — Patron</p>
+      </div>
+      <div class="team-card reveal d2">
+        <div class="tm-av">AD</div>
+        <h4>Prof. Ana Dela Cruz</h4><p>Event Adviser</p>
+      </div>
+      <div class="team-card reveal d3">
+        <div class="tm-av">JD</div>
+        <h4>Juan Dela Cruz</h4><p>Event Coordinator</p>
+      </div>
+      <div class="team-card reveal d4">
+        <div class="tm-av">KB</div>
+        <h4>Kristine Bautista</h4><p>Logistics Head</p>
+      </div>
+      <div class="team-card reveal d5">
+        <div class="tm-av">PR</div>
+        <h4>Paolo Ramos</h4><p>Multimedia &amp; Design</p>
+      </div>
+      <div class="team-card reveal d6">
+        <div class="tm-av">MT</div>
+        <h4>Mia Torres</h4><p>Registration &amp; Documentation</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     FAQ
-══════════════════════════════════════════ -->
+<div class="divider"></div>
+
+<!-- FAQ -->
 <section id="faq">
   <div class="container">
-    <div class="section-tag" style="display:block;text-align:center">FAQ</div>
-    <h2 class="section-title" style="text-align:center">Frequently Asked Questions</h2>
-    <div class="faq-list reveal" id="faqList">
+    <div style="text-align:center;">
+      <div class="section-label" style="justify-content:center;">FAQ</div>
+      <h2 class="section-title">Frequently Asked <em>Questions</em></h2>
+      <p class="section-lead" style="margin:0 auto 0;max-width:500px;">Everything you need to know before attending.</p>
+    </div>
+    <div class="faq-inner reveal">
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Who can attend the Computing Trends Seminar?<span class="faq-icon">+</span></button>
-        <div class="faq-a">The seminar is primarily for CCIS students and faculty of PUP Sta. Mesa, but is also open to students from other colleges, industry professionals, and alumni. All are welcome!</div>
+        <button class="faq-q" onclick="toggleFaq(this)">Who can attend Computing Trends?<span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-a">The seminar is primarily for CCIS students and faculty of PUP Sta. Mesa, but is also open to students from other colleges, industry professionals, and alumni. All are welcome.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Is there a registration fee?<span class="faq-icon">+</span></button>
+        <button class="faq-q" onclick="toggleFaq(this)">Is there a registration fee?<span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
         <div class="faq-a">The main seminar event is FREE for all PUP students with a valid school ID. Industry participants and external guests may have a minimal fee. Specific workshop sessions may have separate fees.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Will certificates be issued?<span class="faq-icon">+</span></button>
-        <div class="faq-a">Yes! E-certificates of participation will be sent to all registered attendees who complete the event. Physical certificates will also be available for in-person attendees at the venue.</div>
+        <button class="faq-q" onclick="toggleFaq(this)">Will certificates be issued?<span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-a">Yes. E-certificates of participation will be sent to all registered attendees who complete the event. Physical certificates will also be available for in-person attendees at the venue.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Is the event available online?<span class="faq-icon">+</span></button>
-        <div class="faq-a">Yes. The main seminar follows a hybrid format. A Zoom link will be provided to registered online participants upon confirmation.</div>
+        <button class="faq-q" onclick="toggleFaq(this)">Is the event available online?<span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-a">Yes. The main seminar follows a hybrid format. A Zoom link will be provided to registered online participants upon confirmation of registration.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Can I suggest a topic or speaker?<span class="faq-icon">+</span></button>
-        <div class="faq-a">Absolutely. Reach out to us via the Contact section below with your suggestion. The organizing committee reviews all submissions for future events.</div>
+        <button class="faq-q" onclick="toggleFaq(this)">Can I suggest a topic or speaker?<span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-a">Absolutely. Reach out via the Contact section with your suggestion. The organizing committee reviews all submissions for future events.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">What should I bring on the day?<span class="faq-icon">+</span></button>
-        <div class="faq-a">Bring your PUP ID (or valid government ID for external guests), your registration reference code (we'll email it to you), a notebook or laptop, and your enthusiasm for computing!</div>
+        <button class="faq-q" onclick="toggleFaq(this)">What should I bring on the day?<span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-a">Bring your PUP ID (or valid government ID for external guests), your registration reference code — we'll email it to you — and a notebook or laptop.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     CONTACT
-══════════════════════════════════════════ -->
+<div class="divider"></div>
+
+<!-- CONTACT -->
 <section id="contact">
   <div class="container">
-    <div class="section-tag">Contact Us</div>
-    <h2 class="section-title">Get in Touch</h2>
-    <div class="contact-layout reveal">
-      <div class="contact-info">
-        <h3>We'd love to hear from you.</h3>
-        <div class="contact-item">
-          <div class="ci-icon">📍</div>
-          <div>
-            <div class="ci-label">Address</div>
-            <div class="ci-val">College of Computing &amp; Information Sciences<br/>Polytechnic University of the Philippines<br/>Anonas St., Sta. Mesa, Manila 1016</div>
-          </div>
+    <div class="section-label">Contact</div>
+    <h2 class="section-title">Get in <em>Touch</em></h2>
+    <div class="contact-grid">
+      <div class="reveal-l">
+        <h3>We'd love to<br/>hear from you.</h3>
+        <div class="ci">
+          <div class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><div class="ci-label">Address</div><div class="ci-val">College of Computing &amp; Information Sciences<br/>Polytechnic University of the Philippines<br/>Anonas St., Sta. Mesa, Manila 1016</div></div>
         </div>
-        <div class="contact-item">
-          <div class="ci-icon">✉️</div>
-          <div>
-            <div class="ci-label">Email</div>
-            <div class="ci-val">computingtrends@pup.edu.ph</div>
-          </div>
+        <div class="ci">
+          <div class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div><div class="ci-label">Email</div><div class="ci-val">computingtrends@pup.edu.ph</div></div>
         </div>
-        <div class="contact-item">
-          <div class="ci-icon">📞</div>
-          <div>
-            <div class="ci-label">Phone</div>
-            <div class="ci-val">(02) 8335-1787 local 217<br/>CCIS Dean's Office</div>
-          </div>
+        <div class="ci">
+          <div class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.08 4.18 2 2 0 015 2h3a2 2 0 012 1.72A12.84 12.84 0 0010.7 6.5a2 2 0 01-.45 2.11L9.09 9.91A16 16 0 0015.09 15l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div>
+          <div><div class="ci-label">Phone</div><div class="ci-val">(02) 8335-1787 local 217<br/>CCIS Dean's Office</div></div>
         </div>
-        <div class="contact-item">
-          <div class="ci-icon">🕐</div>
-          <div>
-            <div class="ci-label">Office Hours</div>
-            <div class="ci-val">Mon – Fri, 8:00 AM – 5:00 PM<br/>(Except Holidays)</div>
-          </div>
+        <div class="ci">
+          <div class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div><div class="ci-label">Office Hours</div><div class="ci-val">Mon – Fri, 8:00 AM – 5:00 PM<br/>(Except Holidays)</div></div>
         </div>
-        <div class="social-row">
-          <a class="social-btn" href="#">Facebook</a>
-          <a class="social-btn" href="#">LinkedIn</a>
-          <a class="social-btn" href="#">Twitter / X</a>
+        <div class="soc-links">
+          <a class="soc-link" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>Facebook</a>
+          <a class="soc-link" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+          <a class="soc-link" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>Twitter / X</a>
         </div>
       </div>
-      <div class="contact-form">
+      <div class="cf-card reveal-r">
         <h4>Send Us a Message</h4>
-        <div style="display:flex;flex-direction:column;gap:1rem;">
-          <div class="fg"><label>Full Name *</label><input type="text" id="c_name" placeholder="Your full name"/></div>
-          <div class="fg"><label>Email *</label><input type="email" id="c_email" placeholder="your@email.com"/></div>
+        <div class="cf-grid">
+          <div class="fg-row">
+            <div class="fg"><label>Full Name *</label><input type="text" id="c_name" placeholder="Your full name" autocomplete="name"/></div>
+            <div class="fg"><label>Email *</label><input type="email" id="c_email" placeholder="your@email.com" autocomplete="email"/></div>
+          </div>
           <div class="fg"><label>Subject *</label><input type="text" id="c_subject" placeholder="e.g. Speaker invitation, sponsorship inquiry…"/></div>
-          <div class="fg"><label>Message *</label><textarea id="c_msg" placeholder="Write your message here…" style="min-height:120px"></textarea></div>
-          <button class="btn btn-maroon" onclick="handleContact()">Send Message →</button>
+          <div class="fg"><label>Message *</label><textarea id="c_msg" placeholder="Write your message here…"></textarea></div>
+          <button class="btn btn-maroon" onclick="handleContact()" style="width:100%;justify-content:center;padding:0.85rem;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Send Message
+          </button>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     FOOTER
-══════════════════════════════════════════ -->
+<!-- FOOTER -->
 <footer>
-  <div class="container">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a href="#hero" class="nav-logo" style="margin-bottom:1rem;display:inline-flex;">
-          <div class="logo-mark">CT</div>
-          <div class="logo-text">
-            <span class="top">PUP · CCIS</span>
-            <span>Computing Trends</span>
-          </div>
-        </a>
-        <p>The annual technology seminar of the College of Computing and Information Sciences, Polytechnic University of the Philippines, Sta. Mesa, Manila.</p>
-      </div>
-      <div class="footer-col">
-        <h5>Quick Links</h5>
-        <ul>
-          <li><a href="#about">About CCIS</a></li>
-          <li><a href="#events">Events</a></li>
-          <li><a href="#program">Program Flow</a></li>
-          <li><a href="#speakers">Speakers</a></li>
-          <li><a href="#faq">FAQ</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Connect</h5>
-        <ul>
-          <li><a href="#register">Register Now</a></li>
-          <li><a href="#contact">Contact Us</a></li>
-          <li><a href="#team">Our Team</a></li>
-          <li><a href="https://www.pup.edu.ph" target="_blank">PUP Official Website ↗</a></li>
-        </ul>
-      </div>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#hero" class="nav-logo" style="display:inline-flex;">
+        <div class="nav-logo-mark"><span class="lm-txt">PUP</span></div>
+        <div class="nav-logo-text"><span class="nl-top">PUP &middot; CCIS</span><span class="nl-bot">Computing Trends</span></div>
+      </a>
+      <p>The annual technology seminar of the College of Computing and Information Sciences, Polytechnic University of the Philippines, Sta. Mesa, Manila.</p>
     </div>
-    <div class="footer-bottom">
-      <p>© 2025 Computing Trends · PUP College of Computing &amp; Information Sciences · Sta. Mesa, Manila</p>
-      <p>Built with ❤ by CCIS students</p>
+    <div class="footer-col">
+      <h5>Quick Links</h5>
+      <ul>
+        <li><a href="#about">About CCIS</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#program">Program Flow</a></li>
+        <li><a href="#speakers">Speakers</a></li>
+        <li><a href="#team">Our Team</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
     </div>
+    <div class="footer-col">
+      <h5>Connect</h5>
+      <ul>
+        <li><a href="#register">Register Now</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="https://forms.gle/7tkD6Jk6Kf7VJk5EA" target="_blank" rel="noopener">Registration Form</a></li>
+        <li><a href="https://www.pup.edu.ph" target="_blank" rel="noopener">PUP Official Website</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bot">
+    <p>&copy; 2025 Computing Trends &middot; PUP College of Computing &amp; Information Sciences &middot; Sta. Mesa, Manila</p>
+    <p>Built by CCIS Students</p>
   </div>
 </footer>
 
-<!-- ══════════════════════════════════════════
-     TOAST
-══════════════════════════════════════════ -->
+<!-- TOAST -->
 <div id="toast">
-  <div class="toast-head ok" id="toastHead">✓ Success</div>
-  <div class="toast-body" id="toastBody">Message sent.</div>
+  <div class="toast-icon ok" id="toastIcon">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+  </div>
+  <div>
+    <div class="toast-title ok" id="toastTitle">Success</div>
+    <div class="toast-body" id="toastBody">Done.</div>
+  </div>
 </div>
 
+<!-- BTT -->
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
 <script>
-/* ═══════════════════════════════════════════════
-   PROGRAM FLOW DATA
-═══════════════════════════════════════════════ */
-const programData = [
-  {time:'7:30 – 8:00 AM',title:'Registration & Kit Distribution',desc:'Sign-in, collect your seminar kit and ID lace at the main lobby.',type:'activity',room:'Main Lobby'},
+/* PROGRAM DATA */
+const prog=[
+  {time:'7:30 – 8:00 AM',title:'Registration & Kit Distribution',desc:'Sign-in and collect your seminar kit at the main lobby.',type:'activity',room:'Main Lobby'},
   {time:'8:00 – 8:20 AM',title:'Opening Ceremony',desc:'National Anthem, Prayer, Welcome Remarks by the Dean of CCIS.',type:'ceremony',room:'Main Auditorium'},
   {time:'8:20 – 8:40 AM',title:'PUP CCIS Overview & Vision 2030',desc:'College presentation and roadmap by the CCIS Department Chair.',type:'talk',room:'Main Auditorium'},
-  {time:'8:40 – 9:30 AM',title:'Keynote: The Age of Generative AI',desc:'Industry keynote — how LLMs are reshaping software engineering, research, and creative industries. Speaker: Engr. Carlo Reyes.',type:'keynote',room:'Main Auditorium'},
+  {time:'8:40 – 9:30 AM',title:'Keynote: The Age of Generative AI',desc:'How LLMs are reshaping software engineering, research, and creative industries. Speaker: Engr. Carlo Reyes.',type:'keynote',room:'Main Auditorium'},
   {time:'9:30 – 10:00 AM',title:'Talk: Quantum Computing — From Theory to Practice',desc:'Quantum algorithms and near-term applications in cryptography and optimization. Speaker: Dr. Rina Villanueva.',type:'talk',room:'Main Auditorium'},
-  {time:'10:00 – 10:15 AM',title:'Coffee Break & Networking',desc:'Light refreshments provided. Meet and connect with speakers and fellow attendees.',type:'break',room:'Lobby'},
+  {time:'10:00 – 10:15 AM',title:'Coffee Break & Networking',desc:'Light refreshments. Meet and connect with speakers and fellow attendees.',type:'break',room:'Lobby'},
   {time:'10:15 – 11:00 AM',title:'Talk: Cybersecurity in the AI Era',desc:'Evolving threats, AI-powered defense, and zero-trust architecture. Speaker: Prof. Ana Dela Cruz.',type:'talk',room:'Main Auditorium'},
   {time:'11:00 – 11:45 AM',title:'Talk: Edge Computing & the IoT Ecosystem',desc:'From cloud to the edge — architectures for real-time intelligent systems.',type:'talk',room:'Main Auditorium'},
-  {time:'11:45 AM – 1:00 PM',title:'Lunch Break',desc:'Catered lunch & open networking. Explore the poster exhibits in the lobby.',type:'break',room:'Cafeteria'},
-  {time:'1:00 – 2:00 PM',title:'Workshop Breakout A: Prompt Engineering Deep Dive',desc:'Hands-on prompt crafting, chain-of-thought, and RAG patterns. Bring your laptop.',type:'workshop',room:'Computer Lab 1'},
-  {time:'1:00 – 2:00 PM',title:'Workshop Breakout B: Data Engineering with dbt & Spark',desc:'Modern data pipeline patterns and hands-on exercises.',type:'workshop',room:'Computer Lab 2'},
-  {time:'2:00 – 3:00 PM',title:'Panel: The Future of Tech Careers & Skills Gap',desc:'Industry leaders discuss what skills will matter most in the next 5 years. Moderated by Dr. Maria Santos.',type:'panel',room:'Main Auditorium'},
+  {time:'11:45 AM – 1:00 PM',title:'Lunch Break',desc:'Catered lunch & open networking. Explore poster exhibits in the lobby.',type:'break',room:'Cafeteria'},
+  {time:'1:00 – 2:00 PM',title:'Workshop A: Prompt Engineering Deep Dive',desc:'Hands-on prompt crafting, chain-of-thought, and RAG patterns. Bring your laptop.',type:'workshop',room:'Computer Lab 1'},
+  {time:'1:00 – 2:00 PM',title:'Workshop B: Data Engineering with dbt & Spark',desc:'Modern data pipeline patterns and hands-on exercises.',type:'workshop',room:'Computer Lab 2'},
+  {time:'2:00 – 3:00 PM',title:'Panel: The Future of Tech Careers & Skills Gap',desc:'Industry leaders on what skills will matter most in the next 5 years. Moderated by Dr. Maria Santos.',type:'panel',room:'Main Auditorium'},
   {time:'3:00 – 3:15 PM',title:'Short Break',desc:'Refreshment break.',type:'break',room:'Lobby'},
   {time:'3:15 – 4:00 PM',title:'Talk: Responsible AI & Algorithmic Ethics',desc:'Bias, fairness, explainability, and governance frameworks. Speaker: Ms. Trisha Lim.',type:'talk',room:'Main Auditorium'},
-  {time:'4:00 – 4:30 PM',title:'Open Q&A Forum',desc:'Live audience Q&A with all speakers. Submit questions via the Slido link.',type:'activity',room:'Main Auditorium'},
-  {time:'4:30 – 5:00 PM',title:'Awarding & Closing Ceremony',desc:'Certificates of participation, raffle draw, closing remarks by the Dean.',type:'ceremony',room:'Main Auditorium'},
+  {time:'4:00 – 4:30 PM',title:'Open Q&A Forum',desc:'Live audience Q&A with all speakers. Submit questions via Slido.',type:'activity',room:'Main Auditorium'},
+  {time:'4:30 – 5:00 PM',title:'Awarding & Closing Ceremony',desc:'Certificates of participation, raffle draw, and closing remarks by the Dean.',type:'ceremony',room:'Main Auditorium'},
 ];
-
-const typeColors = {keynote:'keynote',talk:'',workshop:'workshop',panel:'panel',break:'break',ceremony:'ceremony',activity:''};
-
+const dotColors={keynote:'#C8941A',talk:'#82b0f8',workshop:'#50d4bc',panel:'#c08af8',break:'#3a3336',ceremony:'#e89a9a',activity:'#7a736e'};
+const badgeMap={keynote:'badge-gold',talk:'badge-blue',workshop:'badge-teal',panel:'badge-purple',ceremony:'badge-maroon'};
+function cap(s){return s.charAt(0).toUpperCase()+s.slice(1);}
 function buildTimeline(){
-  const tl = document.getElementById('programTimeline');
-  tl.innerHTML = programData.map((item,i)=>`
-    <div class="tl-item show" data-type="${item.type}">
-      <div class="tl-dot ${typeColors[item.type]||''}"></div>
+  const tl=document.getElementById('timeline');
+  tl.innerHTML=prog.map(item=>`
+    <div class="tl-item" data-type="${item.type}">
+      <div class="tl-dot" style="background:${dotColors[item.type]||'#7a736e'}"></div>
       <div class="tl-card">
-        <div class="tl-time">${item.time}</div>
-        <div class="tl-title">
-          ${item.title}
-          <span class="badge ${badgeClass(item.type)} tl-type-badge">${cap(item.type)}</span>
+        <div class="tl-top">
+          <div class="tl-time">${item.time}</div>
+          ${badgeMap[item.type]?`<span class="badge ${badgeMap[item.type]}">${cap(item.type)}</span>`:''}
         </div>
+        <div class="tl-title">${item.title}</div>
         ${item.desc?`<div class="tl-desc">${item.desc}</div>`:''}
-        ${item.room?`<div class="tl-room">📍 ${item.room}</div>`:''}
+        ${item.room?`<div class="tl-room"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>${item.room}</div>`:''}
       </div>
     </div>
   `).join('');
 }
-
-function badgeClass(t){
-  const m={keynote:'badge-gold',talk:'badge-blue',workshop:'badge-teal',panel:'badge-blue',break:'',ceremony:'badge-maroon',activity:''};
-  return m[t]||'';
-}
-function cap(s){return s.charAt(0).toUpperCase()+s.slice(1);}
-
-function filterProgram(btn, type){
-  document.querySelectorAll('.pfilter').forEach(b=>b.classList.remove('active'));
+function filterProg(btn,type){
+  document.querySelectorAll('.pf').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
-  document.querySelectorAll('.tl-item').forEach(item=>{
-    if(type==='all'||item.dataset.type===type){
-      item.classList.add('show');
-    } else {
-      item.classList.remove('show');
-    }
+  document.querySelectorAll('.tl-item').forEach(el=>{
+    if(type==='all'||el.dataset.type===type)el.classList.remove('hidden');
+    else el.classList.add('hidden');
   });
 }
 
-/* ═══════════════════════════════════════════════
-   SCROLL TO SECTION
-═══════════════════════════════════════════════ */
-function scrollTo(id, eventName, eventId){
-  if(eventName){
-    const sel = document.getElementById('r_event');
-    if(sel) sel.value = String(eventId);
-  }
-  const el = document.getElementById(id);
-  if(el) el.scrollIntoView({behavior:'smooth'});
-}
-
-/* ═══════════════════════════════════════════════
-   ACTIVE NAV LINK ON SCROLL
-═══════════════════════════════════════════════ */
-function updateActiveNav(){
-  const sections=['hero','about','events','program','speakers','register','team','faq','contact'];
+/* NAV */
+function openMob(){document.getElementById('mobileNav').classList.add('open');document.body.style.overflow='hidden';}
+function closeMob(){document.getElementById('mobileNav').classList.remove('open');document.body.style.overflow='';}
+function updateNav(){
+  const ids=['hero','about','events','program','speakers','register','team','faq','contact'];
   let active='hero';
-  for(const id of sections){
-    const el=document.getElementById(id);
-    if(el&&el.getBoundingClientRect().top<=80) active=id;
-  }
-  document.querySelectorAll('.nav-link').forEach(a=>{
-    const href=a.getAttribute('href').replace('#','');
-    a.classList.toggle('active',href===active);
-  });
+  for(const id of ids){const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<=88)active=id;}
+  document.querySelectorAll('.nav-link').forEach(a=>{a.classList.toggle('active',a.getAttribute('href')==='#'+active);});
 }
-window.addEventListener('scroll',updateActiveNav,{passive:true});
 
-/* ═══════════════════════════════════════════════
-   SCROLL REVEAL
-═══════════════════════════════════════════════ */
-const revObs = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
-},{threshold:0.1});
-document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(el=>revObs.observe(el));
+/* REVEAL */
+const ro=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis');}),{threshold:0.08});
+document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(el=>ro.observe(el));
 
-/* ═══════════════════════════════════════════════
-   MOBILE MENU
-═══════════════════════════════════════════════ */
-function openMobile(){document.getElementById('mobileOverlay').classList.add('open');}
-function closeMobile(){document.getElementById('mobileOverlay').classList.remove('open');}
+/* BTT */
+function chkBtt(){document.getElementById('btt').classList.toggle('show',window.scrollY>400);}
+window.addEventListener('scroll',()=>{updateNav();chkBtt();},{passive:true});
 
-/* ═══════════════════════════════════════════════
-   FAQ ACCORDION
-═══════════════════════════════════════════════ */
+/* FAQ */
 function toggleFaq(btn){
   const item=btn.closest('.faq-item');
-  const wasOpen=item.classList.contains('open');
+  const was=item.classList.contains('open');
   document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
-  if(!wasOpen) item.classList.add('open');
+  if(!was)item.classList.add('open');
 }
 
-/* ═══════════════════════════════════════════════
-   TOAST
-═══════════════════════════════════════════════ */
-function showToast(msg, ok=true){
+/* TOAST */
+let tt=null;
+function toast(msg,ok=true){
   const t=document.getElementById('toast');
-  const h=document.getElementById('toastHead');
-  const b=document.getElementById('toastBody');
-  h.textContent = ok ? '✓ Success' : '⚠ Please check';
-  h.className = 'toast-head ' + (ok?'ok':'err');
-  b.textContent = msg;
+  const icon=document.getElementById('toastIcon');
+  const title=document.getElementById('toastTitle');
+  const body=document.getElementById('toastBody');
+  icon.className='toast-icon '+(ok?'ok':'err');
+  icon.innerHTML=ok
+    ?'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>'
+    :'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>';
+  title.className='toast-title '+(ok?'ok':'err');
+  title.textContent=ok?'Success':'Please check';
+  body.textContent=msg;
   t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),5000);
+  if(tt)clearTimeout(tt);
+  tt=setTimeout(()=>t.classList.remove('show'),5000);
 }
-
-/* ═══════════════════════════════════════════════
-   REGISTRATION HANDLER (client-side demo)
-   Replace fetch() target with your api.php endpoint
-═══════════════════════════════════════════════ */
-function handleRegister(){
-  const fname = document.getElementById('r_fname').value.trim();
-  const lname = document.getElementById('r_lname').value.trim();
-  const email = document.getElementById('r_email').value.trim();
-  const event = document.getElementById('r_event').value;
-
-  if(!fname||!lname){ showToast('Please enter your full name.',false); return; }
-  if(!email||!email.includes('@')){ showToast('Please enter a valid email address.',false); return; }
-  if(!event){ showToast('Please select an event.',false); return; }
-
-  // Generate reference code (demo — server would do this)
-  const ref = 'CT' + Math.random().toString(36).substr(2,6).toUpperCase();
-
-  /* === Uncomment to connect to PHP backend ===
-  fetch('api.php?action=register', {
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body: JSON.stringify({
-      first_name: fname, last_name: lname, email,
-      event_id: Number(event),
-      student_id: document.getElementById('r_sid').value,
-      course: document.getElementById('r_course').value,
-      year_section: document.getElementById('r_yearsec').value,
-      role: document.getElementById('r_role').value,
-      expectations: document.getElementById('r_expect').value,
-    })
-  })
-  .then(r=>r.json())
-  .then(d=>{ if(d.status==='ok'){ showToast(d.message); clearForm('regForm'); } else { showToast(d.message,false); }})
-  .catch(()=>showToast('Network error. Please try again.',false));
-  return;
-  === End backend block === */
-
-  showToast(`🎉 Registered! Hi ${fname}, your ref code is ${ref}. Check your email for confirmation.`);
-  clearForm(['r_fname','r_lname','r_email','r_sid','r_course','r_yearsec','r_expect']);
-}
-
-function clearForm(ids){
-  ids.forEach(id=>{ const el=document.getElementById(id); if(el) el.value=''; });
-}
-
-/* ═══════════════════════════════════════════════
-   CONTACT HANDLER
-═══════════════════════════════════════════════ */
+function goRegister(){document.getElementById('register').scrollIntoView({behavior:'smooth'});}
 function handleContact(){
-  const name = document.getElementById('c_name').value.trim();
-  const email = document.getElementById('c_email').value.trim();
-  const subject = document.getElementById('c_subject').value.trim();
-  const msg = document.getElementById('c_msg').value.trim();
-
-  if(!name){ showToast('Please enter your name.',false); return; }
-  if(!email||!email.includes('@')){ showToast('Please enter a valid email.',false); return; }
-  if(!subject){ showToast('Please enter a subject.',false); return; }
-  if(!msg){ showToast('Please write a message.',false); return; }
-
-  /* === Uncomment to connect to PHP backend ===
-  fetch('api.php?action=contact', {
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body: JSON.stringify({full_name:name, email, subject, message:msg})
-  })
-  .then(r=>r.json())
-  .then(d=>{ if(d.status==='ok'){ showToast(d.message); } else { showToast(d.message,false); }})
-  .catch(()=>showToast('Network error.',false));
-  return;
-  === End backend block === */
-
-  showToast(`Thanks ${name}! Your message has been received. We'll reply within 2 business days.`);
+  const name=document.getElementById('c_name').value.trim();
+  const email=document.getElementById('c_email').value.trim();
+  const subject=document.getElementById('c_subject').value.trim();
+  const msg=document.getElementById('c_msg').value.trim();
+  if(!name){toast('Please enter your name.',false);return;}
+  if(!email||!email.includes('@')){toast('Please enter a valid email.',false);return;}
+  if(!subject){toast('Please enter a subject.',false);return;}
+  if(!msg){toast('Please write a message.',false);return;}
+  toast(`Thank you, ${name}. We'll reply within 2 business days.`);
   ['c_name','c_email','c_subject','c_msg'].forEach(id=>document.getElementById(id).value='');
 }
 
-/* ═══════════════════════════════════════════════
-   INIT
-═══════════════════════════════════════════════ */
+/* INIT */
 buildTimeline();
-updateActiveNav();
+updateNav();
+chkBtt();
 </script>
 </body>
 </html>
