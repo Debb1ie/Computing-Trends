@@ -1,9 +1,9 @@
 # Computing Trends 2025 — PUP CCIS Sta. Mesa
-## Website Setup & Documentation
+## Website Setup & Documentation!
 
 ---
 
-##  Project Structure
+##  Project Structure!
 
 ```
 computing-trends/
